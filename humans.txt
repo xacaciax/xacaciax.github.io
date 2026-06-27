@@ -1,0 +1,31 @@
+/* TEAM */
+Acacia Pappas -- software engineer
+GitHub: https://github.com/xacaciax
+LinkedIn: https://www.linkedin.com/in/acaciapappas/
+Twitter: https://x.com/xacaciax_
+Former teacher. Current software engineer. Have always been a builder. 
+Building systems that empower humans to achieve their dreams. 
+
+/* CURRENTLY THINKING ABOUT */
+Local-first software.
+Private and portable identity, usable across systems. 
+Data privacy and security. 
+Education.
+AI agents.
+How using LLMs changes our brians.
+How writers collect and synthesize ideas.
+Why simple systems usually win.
+
+/* THANKS */
+The engineers who leave comments explaining *why*.
+Everyone who publishes their weird little side projects.
+Maintainers who respond to strangers issues <3. 
+
+/* SITE */
+Last update: 2026-06
+Language: English
+Standards: HTML5, CSS3, vanilla JS
+Components: 0
+Dependencies: 0
+Build step: none
+Preferred architecture: boring

@@ -1,0 +1,18 @@
+# Acacia Pappas
+
+Software engineer. Former educator. Currently serving as interim CTO at Hope Street Group. I like building and creating. Tools of choice: words, languages, computers, story, pencil and paper, and more recently any number of large language models.
+
+## About
+
+This site is a personal engineering portfolio. It tracks questions I'm wrestling with, things I've figured out, and work that came out of it. 
+
+## Writing
+
+- From Educator to Engineer: How the I/Own It Scholarship Launched my Career in Tech (2018) — career transition from teaching to software engineering via Hack Reactor and Optimizely.
+
+## Links
+
+- GitHub: https://github.com/xacaciax
+- LinkedIn: https://www.linkedin.com/in/acaciapappas/
+- Twitter: https://x.com/xacaciax_
+- Hope Street Group: https://www.hopestreetgroup.org/
