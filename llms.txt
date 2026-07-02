@@ -10,6 +10,7 @@ This site is a personal engineering portfolio. It tracks questions I'm wrestling
 
 - From Educator to Engineer: How the I/Own It Scholarship Launched my Career in Tech (2018) — career transition from teaching to software engineering via Hack Reactor and Optimizely.
 - Building Reliable Applications in the New Age of Non-Deterministic Data (2024) — Fluttercon EU talk on building resilient Flutter apps that consume LLM-generated data, covering prompting, temperature/top-p tuning, function calling, validation, defaults/sanitation, and moderation.
+- AI Philosophy (2024) — Hope Street Group's internal statement on AI, the future, and how the org does and does not build education technology powered by LLMs, covering safety, bias mitigation, teacher adoption burden, student privacy, and AI literacy.
 
 ## Links
 

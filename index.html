@@ -22,16 +22,16 @@ Building systems that empower humans to achieve their dreams.">
   <meta id="theme-color-dark" name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
   <meta id="theme-color-light" name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/brand/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/brand/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
 
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Acacia Pappas">
   <meta property="og:description" content="Former teacher. Current software engineer. Have always been a builder. Building systems that empower humans to achieve their dreams.">
   <meta property="og:url" content="https://xacaciax.github.io/">
-  <meta property="og:image" content="https://xacaciax.github.io/assets/og-image.png">
+  <meta property="og:image" content="https://xacaciax.github.io/assets/brand/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="profile:first_name" content="Acacia">
@@ -40,7 +40,7 @@ Building systems that empower humans to achieve their dreams.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Acacia Pappas">
   <meta name="twitter:description" content="Former teacher. Current software engineer. Have always been a builder. Building systems that empower humans to achieve their dreams.">
-  <meta name="twitter:image" content="https://xacaciax.github.io/assets/og-image.png">
+  <meta name="twitter:image" content="https://xacaciax.github.io/assets/brand/og-image.png">
 
   <script type="application/ld+json">
   {
@@ -75,7 +75,8 @@ Building systems that empower humans to achieve their dreams.">
         "Technical Leadership",
         "Large Language Models",
         "Non-Deterministic Data",
-        "Data Validation"
+        "Data Validation",
+        "AI Ethics"
       ]
     }
   }
@@ -223,9 +224,9 @@ Building systems that empower humans to achieve their dreams.">
       color: var(--link);
       font-family: inherit;
       font-size: 13px;
-      padding: 3px 8px;
+      padding: 3px 10px;
       cursor: pointer;
-      border-radius: 2px;
+      border-radius: 999px;
     }
 
     .article-nav button:hover,
@@ -313,6 +314,24 @@ Building systems that empower humans to achieve their dreams.">
       font-style: italic;
     }
 
+    .article-body ul {
+      margin: 0 0 18px;
+      padding-left: 22px;
+    }
+
+    .article-body li {
+      margin-bottom: 8px;
+    }
+
+    .article-body li:last-child { margin-bottom: 0; }
+
+    .article-body img {
+      display: block;
+      width: 100%;
+      border-radius: 2px;
+      margin: 24px 0;
+    }
+
     .stat-line {
       background: var(--bg-raised);
       border: 1px solid var(--border);
@@ -384,7 +403,7 @@ Building systems that empower humans to achieve their dreams.">
     }
 
     #header-subtitle {
-      font-size: 12px;
+      font-size: 16px;
       color: var(--text-3);
       margin-top: 6px;
     }
@@ -570,8 +589,8 @@ Building systems that empower humans to achieve their dreams.">
       border: 1px solid var(--border);
       color: var(--text-4);
       font-size: 10px;
-      padding: 1px 5px;
-      border-radius: 2px;
+      padding: 1px 8px;
+      border-radius: 999px;
     }
 
     .dot { color: var(--border-hi); }
@@ -696,7 +715,7 @@ Building systems that empower humans to achieve their dreams.">
       .article-title { font-size: 20px; }
 
       .article-nav button {
-        padding: 12px 16px;
+        padding: 13px 18px;
       }
 
       .article-footer button {
@@ -719,14 +738,14 @@ Building systems that empower humans to achieve their dreams.">
   <div id="header">
     <div>
       <div id="brand-mark">
-        <img id="brand-icon" src="assets/header-mark.png" alt="" width="35" height="35">
+        <img id="brand-icon" src="assets/brand/header-mark.png" alt="" width="35" height="35">
         <span id="brand-name">{acacia}</span>
       </div>
       <div id="header-subtitle">Essays, articles, and experiments.</div>
     </div>
     <nav id="header-links" class="link-row">
       <button id="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="false">
-        <img id="theme-toggle-icon" src="assets/theme-icon-cream.png" alt="">
+        <img id="theme-toggle-icon" src="assets/brand/theme-icon-cream.png" alt="">
       </button>
     </nav>
   </div>
@@ -865,13 +884,16 @@ Building systems that empower humans to achieve their dreams.">
     {
       id:       "flutter-non-deterministic-data",
       title:    "Building Reliable Applications in the New Age of Non-Deterministic Data",
-      subtitle: "Building mobile applications that consume predominantly non-deterministic data pose a new and unique set of challenges. This talk given at FlutterCon 2024 in Berlin reviews ways to wrangle non-determinitistic data into more a reliable / usable structure.",
+      subtitle: "A talk I gave at Fluttercon EU 2024.",
       date:     "July 2024",
       dateISO:  "2024-07-03",
       section:  "archive",
       tags:     ["Flutter", "LLM", "AI", "mobile", "Fluttercon", "data validation"],
       image:    null,
       body: `
+      
+    <p>In summary: Building mobile applications that consume predominantly non-deterministic data pose a new and unique set of challenges. This talk given at FlutterCon 2024 in Berlin reviews ways to wrangle non-determinitistic data into more a reliable / usable structure.</p>
+    
     <p><em>Acacia Pappas | Fluttercon EU 2024</em></p>
 
     <p><em>Watch the talk: <a href="https://youtu.be/dA9lxvE9Pkw" target="_blank" rel="noopener">Building Reliable Applications in the New Age of Non-Deterministic Data</a></em></p>
@@ -962,6 +984,109 @@ Building systems that empower humans to achieve their dreams.">
     <p>So that's an overview. Like I said, these aren't meant to be a formula or playbook, rather a menu of options you can choose from to improve the resiliency of your app. We're also growing alongside these APIs &mdash; we're trying to stay on the edge as much as we can, and we don't always know what's coming, so it's possible all of these won't be necessary within the next year. We'll see.</p>
 
     <p>If you'd like to check out our app, if you would like to use it to explore your next career step, you can &mdash; it's free, and it's on the iOS App Store. Thank you so much for your time. And that's it.</p>
+      `
+    },
+    {
+      id:       "hope-street-group-ai-philosophy",
+      title:    "[Our] AI Philosophy",
+      subtitle: "An internal statement I wrote on AI, the future, and how we do and do not build education technology powered by LLMs.",
+      date:     "May 2024",
+      dateISO:  "2024-05-01",
+      section:  "archive",
+      tags:     ["AI", "EdTech", "philosophy", "education", "ethics"],
+      image:    null,
+      body: `
+    <p><em>An internal document to drive consensus, shared language and framing when talking with educators.</em></p>
+
+    <h2>Some definitions</h2>
+
+    <ul>
+      <li><strong>AI</strong> &mdash; Artificial Intelligence refers to computer systems designed to perform tasks that typically require human intelligence, such as learning, reasoning, problem-solving, perception, and language understanding.</li>
+      <li><strong>AI powered application</strong> &mdash; an application that uses generative AI to create new content, responses, or solutions rather than just following pre-programmed rules.</li>
+      <li><strong>Generative AI</strong> &mdash; a type of artificial intelligence that can create new content such as text, images, audio, video, or code based on patterns learned from training data. Examples include chatbots like Claude, image generators like DALL-E, and code assistants.</li>
+      <li><strong>Predictive AI</strong> &mdash; AI systems that analyze historical data and patterns to forecast future outcomes, trends, or behaviors. This includes recommendation systems, fraud detection, weather forecasting, and risk assessment tools.</li>
+      <li><strong>Large Language Model (LLM)</strong> &mdash; a type of AI model trained on vast amounts of text data to understand and generate human-like language. These models can perform various language tasks including translation, summarization, question-answering, and conversation.</li>
+      <li><strong>Ed Tech</strong> &mdash; shorthand for "education technology" &mdash; refers to digital tools, platforms, and applications designed to enhance teaching and learning experiences in educational settings.</li>
+      <li><strong>HopeST</strong> &mdash; our student facing mobile application.</li>
+    </ul>
+
+    <h2>Looking forward&hellip;</h2>
+
+    <p>We believe that generative AI, as offered through models like ChatGPT, Claude, etc., will dramatically change the world of work and how students learn over the next decade.</p>
+
+    <p><em>Ways we see this happening already:</em></p>
+
+    <p><strong>ChatGPT usage continues to grow.</strong></p>
+
+    <blockquote>ChatGPT went from 1 million weekly users to 800 million in under three years.</blockquote>
+
+    <p><strong>AI in the Workplace Today</strong></p>
+
+    <img src="assets/articles/chatgpt_usage_2025.png" alt="Chart showing ChatGPT weekly active user growth from 2023 to 2025">
+
+    <p><em>Source: Generative AI and the Future of Work in America</em></p>
+
+    <p>We view AI as a massive dynamic mirror of all recorded human knowledge over time. We know unmediated use of AI, insofar as we are still coming to understand its behavior and applications, can be <strong>unsafe for students.</strong> As an ed tech non-profit, our responsibility is to work with schools and students to maximize positive impact on students and minimize harm in the process of developing AI powered applications for education purposes.</p>
+
+    <p>We believe development of AI powered applications for education should be a <strong>collaboration between ed tech companies and schools.</strong> Establishing and maintaining strong partnerships helps us deliver the most safe and useful experience for students.</p>
+
+    <p>We believe AI powered applications built for students and schools can democratize information, personalize learning experiences, and empower students <strong>better than other technology we have seen to date.</strong></p>
+
+    <p>We view generative AI as a new technology in a long series of technologies that can improve the school experience and increase accessibility to world class education experiences for all students everywhere. <em>We do not believe any technology, including AI, can replace the role of a caring and attentive human in the process of raising, developing, and educating a child.</em></p>
+
+    <p><strong>We know change is uncomfortable.</strong> We are here to partner with education leaders who are ready to embrace this new wave of technology in schools, to learn and develop tools with us. Educator feedback shapes the future of AI powered education technology.</p>
+
+    <p>Actions we have taken to learn from students and schools:</p>
+
+    <ul>
+      <li>We create layers of counsel and accountability, from our board member selection to educator advisory councils. These help inform what and how we build.</li>
+      <li>We have strong partnerships with schools and districts where we gather input from teachers, students, and education leaders on what and how we are building.</li>
+      <li>Educators have a say every step of the way. When we first prototype a new product or feature, we surface it to our advisory council and others in our network for feedback and input.</li>
+      <li>Our product team attends launches of our product in classrooms and schools multiple times a year.</li>
+    </ul>
+
+    <h2>How we build&hellip;</h2>
+
+    <p><strong>We develop AI powered apps for students that are useful and safe.</strong> We have been listening carefully to our education partners and we know educators are concerned about privacy, safety, bias, and ethical usage of this new technology.</p>
+
+    <p><strong>We are acutely aware of how LLMs are biased.</strong> Through careful prompt engineering and testing, we work to surface responses that are representative of the students and communities we serve. Prompt engineering is a new practice that is evolving quickly. The prompts we use reflect the best and most recent practices in the industry. This does not mean responses will be perfect, but we are committed to continuously innovating and testing our prompts to ensure the best responses possible to date.</p>
+
+    <p>Actions we are taking to mitigate for bias:</p>
+
+    <ul>
+      <li>Our prompts aim toward fairness and justice in all student interactions.</li>
+      <li>Design decisions like gender neutral names, bitmoji selection, etc.</li>
+      <li>Letting students choose their own names while on the platform, etc.</li>
+    </ul>
+
+    <p><strong>We aim to decrease the burden of adoption for teachers.</strong> Our product team, the people building HopeST applications, is made up of educators with classroom experience. We build thoughtfully and carefully with teachers and students in mind. We understand that adopting new technologies takes energy and time, two things classroom teachers are always wanting more of.</p>
+
+    <p>Actions we have taken to decrease the burden of adoption:</p>
+
+    <ul>
+      <li>We use Universal Design principles when building for teachers and students, e.g. rebuild of v2.</li>
+      <li>We are constantly looking for ways to reduce friction for adoption and use for users, e.g. rebuild of v2.</li>
+    </ul>
+
+    <p><strong>We protect student privacy in every part of our development processes.</strong> We are always happy to answer questions about this and provide more information to schools, educators, and students.</p>
+
+    <p>Actions we have taken to protect student privacy:</p>
+
+    <ul>
+      <li>We comply with FERPA and COPPA as a baseline.</li>
+      <li>We select technologies that support security best practices out of the box.</li>
+      <li>We use LLM providers that do not use student data for training purposes.</li>
+    </ul>
+
+    <p><strong>We aim to increase AI Literacy for schools, teachers, and students.</strong> As we all learn more about LLMs and what generative AI can do, increasing general AI Literacy is a natural part of building together and building trust. Understanding how AI works equips us to be more capable and responsible consumers.</p>
+
+    <p>Ways we are helping improve AI Literacy for our partners:</p>
+
+    <ul>
+      <li>Educator Advisory Council</li>
+      <li>Speaking at Conferences</li>
+      <li>Summer PD &mdash; webinars</li>
+    </ul>
       `
     },
   ];
@@ -1128,7 +1253,7 @@ Building systems that empower humans to achieve their dreams.">
 
   // ── Theme toggle ─────────────────────────────────────────────
   (function () {
-    const ICONS = { dark: "assets/theme-icon-cream.png", light: "assets/theme-icon-navy.png" };
+    const ICONS = { dark: "assets/brand/theme-icon-cream.png", light: "assets/brand/theme-icon-navy.png" };
     const THEME_COLOR = { dark: "#0a0a0a", light: "#ffffff" };
     const LABEL = { dark: "Switch to light mode", light: "Switch to dark mode" };
 
