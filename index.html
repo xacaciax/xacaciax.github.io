@@ -137,8 +137,7 @@ Building systems that empower humans to achieve their dreams.">
         transition: opacity 0.15s ease;
       }
 
-      #entry-nav button,
-      .article-nav button {
+      #entry-nav button {
         transition: transform 0.1s ease, border-color 0.15s ease, color 0.15s ease;
       }
 
@@ -191,51 +190,6 @@ Building systems that empower humans to achieve their dreams.">
       grid-template-rows: auto auto auto auto;
       gap: 0 44px;
     }
-
-    #index-view.hidden { display: none; }
-
-    #article-view {
-      display: none;
-      max-width: 680px;
-      margin: 0 auto;
-      padding-top: 48px;
-      padding-right: max(24px, env(safe-area-inset-right));
-      padding-bottom: max(100px, env(safe-area-inset-bottom));
-      padding-left: max(24px, env(safe-area-inset-left));
-    }
-
-    #article-view.visible { display: block; }
-
-    .article-nav {
-      font-family: var(--font-mono);
-      font-size: 13px;
-      color: var(--text-4);
-      margin-bottom: 32px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .article-nav button {
-      background: none;
-      border: 1px solid var(--border);
-      color: var(--link);
-      font-family: inherit;
-      font-size: 13px;
-      padding: 3px 10px;
-      cursor: pointer;
-      border-radius: 999px;
-    }
-
-    .article-nav button:hover,
-    .article-nav button:active {
-      border-color: var(--border-hi);
-      color: var(--link-hi);
-    }
-
-    .article-nav button:active { transform: scale(0.96); }
 
     .article-eyebrow {
       font-family: var(--font-mono);
@@ -338,6 +292,13 @@ Building systems that empower humans to achieve their dreams.">
       width: 100%;
       border-radius: 2px;
       margin: 24px 0;
+    }
+
+    .article-image {
+      display: block;
+      width: 100%;
+      border-radius: 2px;
+      margin-bottom: 28px;
     }
 
     .stat-line {
@@ -713,18 +674,7 @@ Building systems that empower humans to achieve their dreams.">
         font-size: 13px;
       }
 
-      #article-view {
-        padding-top: 28px;
-        padding-right: max(18px, env(safe-area-inset-right));
-        padding-bottom: max(60px, env(safe-area-inset-bottom));
-        padding-left: max(18px, env(safe-area-inset-left));
-      }
-
       .article-title { font-size: 20px; }
-
-      .article-nav button {
-        padding: 13px 18px;
-      }
 
       .article-footer button {
         padding: 12px 0;
@@ -790,29 +740,6 @@ Building systems that empower humans to achieve their dreams.">
 </div>
 
 
-<div id="article-view">
-
-  <div class="article-nav">
-    <button onclick="hideArticle()">&larr; back</button>
-    <span id="art-nav-crumb">{acacia}</span>
-  </div>
-
-  <div class="article-eyebrow" id="art-eyebrow"></div>
-  <h1 class="article-title" id="art-title"></h1>
-  <div class="article-byline" id="art-subtitle"></div>
-  <div class="article-meta" id="art-tags"></div>
-  <img class="article-image" id="art-image" style="display:none; width:100%; margin-bottom:28px;">
-
-  <div class="article-body" id="art-body"></div>
-
-  <div class="article-footer">
-    <button onclick="hideArticle()">&larr; back to index</button>
-    <span id="art-footer-date"></span>
-  </div>
-
-</div>
-
-
 <script src="drafts.js" onerror="window.DRAFTS=[]"></script>
 <script>
   // const ENTRIES = window.DRAFTS || [];
@@ -821,15 +748,15 @@ Building systems that empower humans to achieve their dreams.">
   const ARTICLES = [
     {
       id:       "educator-to-engineer",
-      title:    "From Educator to Engineer",
-      subtitle: "How the I/Own It Scholarship Launched my Career in Tech",
+      title:    "From Educator to Engineer: How the I/Own It Scholarship Launched my Career in Tech",
+      subtitle: "A blog post I wrote to provide insight into my transition into tech.",
       date:     "August 2019",
       dateISO:  "2019-08-01",
       section:  "archive",
       tags:     ["career", "diversity", "bootcamp", "Hack Reactor", "Optimizely"],
       image:    null,
       body: `
-    <p class="article-summary">This article was written for Optimizely and published on their blog in August 2019, to share what the transition felt like and show others considering a similar path that it's possible.</p>
+    <p class="article-summary">This article was written for Optimizely and published on their blog in August 2019. My aim was to provide insight into what the transition felt like, to demonstrate that although it can be challenging, it is also very doable. Optimizely's aim was to celebrate their DEI intiatives, specifically the I/Own It Scholarship.</p>
 
     <p>Just over a year ago, I closed the door to my classroom for the last time as I wrapped up my sixth and final year as a teacher at an alternative high school in Philadelphia. I was about to take a leap from education to tech, from teacher to software engineer. I didn't know then that I'd be starting as a Software Engineer at Optimizely just one year later &mdash; because I'd win a scholarship that would catapult me into the technology industry in San Francisco.</p>
 
@@ -1101,18 +1028,36 @@ Building systems that empower humans to achieve their dreams.">
     },
   ];
 
-  function showEntryArticle(id) {
-    const e = ENTRIES.find(e => e.id === id);
-    if (!e) return;
+  // ── Unified navigation: now/recently entries + archive articles, in one
+  //    ordered list, all rendered inline into #entry-display (no separate
+  //    page view). prev/next walks this list regardless of section.
+  const VISIBLE_ENTRIES = ENTRIES.filter(e => !e.hidden);
+  const SORTED_ARTICLES = ARTICLES.slice().sort((a, b) => b.dateISO.localeCompare(a.dateISO));
+  const NAV_ITEMS = [
+    ...VISIBLE_ENTRIES.map(e => ({ type: "entry", data: e })),
+    ...SORTED_ARTICLES.map(a => ({ type: "article", data: a })),
+  ];
 
-    document.getElementById("art-nav-crumb").textContent = `{acacia} · ${e.section}`;
-    document.getElementById("art-eyebrow").textContent = `${e.section} · ${e.date}`;
-    document.getElementById("art-title").textContent = e.question;
-    document.getElementById("art-subtitle").textContent = "";
-    document.getElementById("art-footer-date").textContent = e.date;
-    document.getElementById("art-tags").innerHTML = e.tags.map(t => `<span class="q-tag">${t}</span>`).join(" ");
-    document.getElementById("art-image").style.display = "none";
+  let currentIndex = 0;
 
+  function renderEntry(e) {
+    const tags = e.tags.map(t => `<span class="q-tag">${t}</span>`).join(" ");
+    const timeEl = e.dateISO
+      ? `<time datetime="${e.dateISO}">${e.date}</time>`
+      : `<span>${e.date}</span>`;
+    const link = (e.link || e.body)
+      ? `<button class="entry-link" onclick="expandItem('${e.id}')">read full post &rarr;</button>`
+      : "";
+    return `
+      <p class="entry-question">${e.stub ? '<span class="coming-soon">[draft] </span>' : ''}${e.question}</p>
+      <p class="entry-context">${e.context}</p>
+      <div class="entry-meta">${tags}<span class="dot">&middot;</span>${timeEl}</div>
+      ${link}
+    `;
+  }
+
+  function renderEntryFull(e) {
+    const tags = e.tags.map(t => `<span class="q-tag">${t}</span>`).join(" ");
     let bodyHtml = e.body ? e.body : `<p>${e.context}</p>`;
     if (e.stub && !e.body) {
       bodyHtml += `<p class="article-coming-soon">Full post coming soon.</p>`;
@@ -1120,85 +1065,67 @@ Building systems that empower humans to achieve their dreams.">
     if (e.link) {
       bodyHtml += `<p class="article-external-link"><a href="${e.link}" target="_blank" rel="noopener">read the original post &rarr;</a></p>`;
     }
-
-    document.getElementById("art-body").innerHTML = bodyHtml;
-    document.getElementById("index-view").classList.add("hidden");
-    document.getElementById("article-view").classList.add("visible");
-    window.scrollTo(0, 0);
-  }
-
-  function showArticle(id) {
-    const a = ARTICLES.find(a => a.id === id);
-    if (!a) return;
-
-    document.getElementById("art-nav-crumb").textContent = `{acacia} · ${a.section}`;
-    document.getElementById("art-eyebrow").textContent = `${a.section} · ${a.date}`;
-    document.getElementById("art-title").textContent = a.title;
-    document.getElementById("art-subtitle").textContent = a.subtitle;
-    document.getElementById("art-footer-date").textContent = `archived ${a.date}`;
-
-    document.getElementById("art-tags").innerHTML =
-      a.tags.map(t => `<span class="q-tag">${t}</span>`).join(" ");
-
-    const img = document.getElementById("art-image");
-    if (a.image) {
-      img.src = a.image.src;
-      img.alt = a.image.alt || "";
-      img.style.display = "block";
-    } else {
-      img.style.display = "none";
-    }
-
-    document.getElementById("art-body").innerHTML = a.body;
-
-    document.getElementById("index-view").classList.add("hidden");
-    document.getElementById("article-view").classList.add("visible");
-    window.scrollTo(0, 0);
-  }
-
-  function hideArticle() {
-    document.getElementById("index-view").classList.remove("hidden");
-    document.getElementById("article-view").classList.remove("visible");
-    window.scrollTo(0, 0);
-  }
-
-  let currentEntryIndex = 0;
-
-  const VISIBLE_ENTRIES = ENTRIES.filter(e => !e.hidden);
-
-  function showEntry(id) {
-    const idx = VISIBLE_ENTRIES.findIndex(e => e.id === id);
-    const isHidden = idx === -1;
-    const e = isHidden ? ENTRIES.find(e => e.id === id) : VISIBLE_ENTRIES[idx];
-    if (!e) return;
-    if (!isHidden) currentEntryIndex = idx;
-    const tags = e.tags.map(t => `<span class="q-tag">${t}</span>`).join(" ");
-    const timeEl = e.dateISO
-      ? `<time datetime="${e.dateISO}">${e.date}</time>`
-      : `<span>${e.date}</span>`;
-    const link = (e.link || e.body)
-      ? `<button class="entry-link" onclick="showEntryArticle('${e.id}')">read full post &rarr;</button>`
-      : "";
-    document.getElementById("entry-display").innerHTML = `
-      <p class="entry-question">${e.stub ? '<span class="coming-soon">[draft] </span>' : ''}${e.question}</p>
-      <p class="entry-context">${e.context}</p>
-      <div class="entry-meta">${tags}<span class="dot">&middot;</span>${timeEl}</div>
-      ${link}
+    return `
+      <div class="article-eyebrow">${e.section} · ${e.date}</div>
+      <h1 class="article-title">${e.question}</h1>
+      <div class="article-meta">${tags}</div>
+      <div class="article-body">${bodyHtml}</div>
+      <div class="article-footer">
+        <button onclick="showItem('${e.id}')">&larr; back to summary</button>
+        <span>${e.date}</span>
+      </div>
     `;
+  }
+
+  function renderArticle(a) {
+    const tags = a.tags.map(t => `<span class="q-tag">${t}</span>`).join(" ");
+    const img = a.image
+      ? `<img class="article-image" src="${a.image.src}" alt="${a.image.alt || ""}">`
+      : "";
+    return `
+      <div class="article-eyebrow">${a.section} · ${a.date}</div>
+      <h1 class="article-title">${a.title}</h1>
+      <div class="article-byline">${a.subtitle || ""}</div>
+      <div class="article-meta">${tags}</div>
+      ${img}
+      <div class="article-body">${a.body}</div>
+    `;
+  }
+
+  function showItem(id) {
+    const idx = NAV_ITEMS.findIndex(it => it.data.id === id);
+    const isHidden = idx === -1;
+    const item = isHidden
+      ? { type: "entry", data: ENTRIES.find(e => e.id === id) }
+      : NAV_ITEMS[idx];
+    if (!item.data) return;
+    if (!isHidden) currentIndex = idx;
+
+    document.getElementById("entry-display").innerHTML =
+      item.type === "article" ? renderArticle(item.data) : renderEntry(item.data);
+
     document.querySelectorAll(".side-nav-item").forEach(el => {
       el.classList.toggle("active", el.dataset.id === id);
       el.setAttribute("aria-current", el.dataset.id === id ? "true" : "false");
     });
     document.getElementById("nav-prev").style.visibility = (isHidden || idx <= 0) ? "hidden" : "visible";
-    document.getElementById("nav-next").style.visibility = (isHidden || idx >= VISIBLE_ENTRIES.length - 1) ? "hidden" : "visible";
+    document.getElementById("nav-next").style.visibility = (isHidden || idx >= NAV_ITEMS.length - 1) ? "hidden" : "visible";
+    window.scrollTo(0, 0);
+  }
+
+  function expandItem(id) {
+    const e = ENTRIES.find(e => e.id === id);
+    if (!e) return;
+    document.getElementById("entry-display").innerHTML = renderEntryFull(e);
+    window.scrollTo(0, 0);
   }
 
   function prevEntry() {
-    if (currentEntryIndex > 0) showEntry(VISIBLE_ENTRIES[currentEntryIndex - 1].id);
+    if (currentIndex > 0) showItem(NAV_ITEMS[currentIndex - 1].data.id);
   }
 
   function nextEntry() {
-    if (currentEntryIndex < VISIBLE_ENTRIES.length - 1) showEntry(VISIBLE_ENTRIES[currentEntryIndex + 1].id);
+    if (currentIndex < NAV_ITEMS.length - 1) showItem(NAV_ITEMS[currentIndex + 1].data.id);
   }
 
   function renderSidebar() {
@@ -1213,20 +1140,17 @@ Building systems that empower humans to achieve their dreams.">
       html += `<div class="side-nav-section">`;
       html += `<div class="side-label">${label}</div>`;
       items.forEach(e => {
-        html += `<button class="side-nav-item" data-id="${e.id}" onclick="showEntry('${e.id}')" aria-current="false">
+        html += `<button class="side-nav-item" data-id="${e.id}" onclick="showItem('${e.id}')" aria-current="false">
           <span class="side-nav-date">${e.date}</span><span class="side-nav-title">${e.question}</span>
         </button>`;
       });
       html += `</div>`;
     });
-    const archiveItems = ARTICLES
-      .filter(a => a.section === "archive")
-      .sort((a, b) => b.dateISO.localeCompare(a.dateISO));
-    if (archiveItems.length) {
+    if (SORTED_ARTICLES.length) {
       html += `<div class="side-nav-section">`;
       html += `<div class="side-label">Archive</div>`;
-      archiveItems.forEach(a => {
-        html += `<button class="side-nav-item" data-id="${a.id}" onclick="showArticle('${a.id}')" aria-current="false">
+      SORTED_ARTICLES.forEach(a => {
+        html += `<button class="side-nav-item" data-id="${a.id}" onclick="showItem('${a.id}')" aria-current="false">
           <span class="side-nav-date">${a.date}</span><span class="side-nav-title">${a.title}</span>
         </button>`;
       });
@@ -1247,7 +1171,7 @@ Building systems that empower humans to achieve their dreams.">
       konamiIdx++;
       if (konamiIdx === KONAMI_SEQ.length) {
         konamiIdx = 0;
-        showEntry('konami');
+        showItem('konami');
         console.log('%c↑↑↓↓←→←→ — you found it.', 'color: #c4a24a; font-family: monospace; font-size: 12px;');
       }
     } else {
@@ -1256,7 +1180,7 @@ Building systems that empower humans to achieve their dreams.">
   });
 
   renderSidebar();
-  if (VISIBLE_ENTRIES.length) showEntry(VISIBLE_ENTRIES[0].id);
+  if (NAV_ITEMS.length) showItem(NAV_ITEMS[0].data.id);
 
   document.getElementById("updated").textContent =
     "updated " + new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" });
