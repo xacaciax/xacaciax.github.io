@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>A3C2I</title>
-  <meta name="description" content="I build systems that help people think, decide, and create. I'm fascinated by the invisible architecture behind software, organizations, and learning—and I like turning those ideas into products people actually enjoy using.">
+  <meta name="description" content="Former teacher. Current software engineer. Have always been a builder. 
+Building systems that empower humans to achieve their dreams.">
   <meta name="author" content="Acacia Pappas">
   <link rel="canonical" href="https://xacaciax.github.io/">
 
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Acacia Pappas">
-  <meta property="og:description" content="I build systems that help people think, decide, and create. I'm fascinated by the invisible architecture behind software, organizations, and learning—and I like turning those ideas into products people actually enjoy using.">
+  <meta property="og:description" content="Former teacher. Current software engineer. Have always been a builder. Building systems that empower humans to achieve their dreams.">
   <meta property="og:url" content="https://xacaciax.github.io/">
   <meta property="profile:first_name" content="Acacia">
   <meta property="profile:last_name" content="Pappas">
@@ -30,7 +31,7 @@
         "https://www.linkedin.com/in/acaciapappas/",
         "https://x.com/xacaciax_"
       ],
-      const knowsAbout = [
+      "knowsAbout": [
         "Flutter",
         "Dart",
         "TypeScript",
@@ -47,7 +48,10 @@
         "EdTech",
         "Product Development",
         "Technical Leadership",
-      ];
+        "Large Language Models",
+        "Non-Deterministic Data",
+        "Data Validation"
+      ]
     }
   }
   </script>
@@ -601,6 +605,7 @@
       title:    "From Educator to Engineer",
       subtitle: "How the I/Own It Scholarship Launched my Career in Tech",
       date:     "2018",
+      dateISO:  "2018-01-01",
       section:  "archive",
       tags:     ["career", "diversity", "bootcamp", "Hack Reactor", "Optimizely"],
       image:    null,
@@ -663,6 +668,108 @@
     <p>I still think of my students every day. One lesson I carry from teaching is that everyone benefits when you bring your whole self to work. At El Centro De Estudiantes High School in North Philadelphia, integrating who I was into my day-to-day instruction made my students more responsive and open. Co-planning with colleagues became less of a task and more like doing a project with friends.</p>
 
     <p>This is why I believe diversity and inclusion initiatives like I/Own It are important. The demographic breakdown of the tech industry reflects greater and more systemic issues of inequality in our society. This program is one effective and replicable way toward positive change in this industry.</p>
+      `
+    },
+    {
+      id:       "flutter-non-deterministic-data",
+      title:    "Flutter Apps in the New Age of Non-Deterministic Data",
+      subtitle: "Building mobile applications that consume predominantly non-deterministic data pose a new and unique set of challenges. This talk given at FlutterCon 2024 in Berlin reviews ways to wrangle non-determinitistic data into more a reliable / usable structure.",
+      date:     "2024",
+      dateISO:  "2024-07-03",
+      section:  "archive",
+      tags:     ["Flutter", "LLM", "AI", "mobile", "Fluttercon", "data validation"],
+      image:    null,
+      body: `
+    <p><em>Acacia Pappas | Fluttercon EU 2024</em></p>
+
+    <p><em>Watch the talk: <a href="https://youtu.be/dA9lxvE9Pkw" target="_blank" rel="noopener">Flutter Apps in the New Age of Non-Deterministic Data</a></em></p>
+
+    <p><em>Slides: <a href="https://docs.google.com/presentation/d/1MlNjs8pVHNweS3rkdo2sUYzpK_39ufmpprp9a-QPZPE/edit?usp=sharing" target="_blank" rel="noopener">Flutter Apps in the New Age of Non-Deterministic Data Slides</a></em></p>
+
+    <p>Thank you for being here. My name is Acacia, and today I'm going to be speaking to you about how to build resilient Flutter applications using non-deterministic data.</p>
+
+    <p>Before going any further, by non-deterministic data, I mean when using large language models like Gemini or ChatGPT, you're never quite certain what kind of data you're going to get&hellip; or maybe just lots of milk.</p>
+
+    <p>A little bit about me: I'm a founding engineer at Hope Street Group, which is a nonprofit in the United States. I'm from Seattle, Washington, where I enjoy doing things that many people in that region like to do &mdash; hiking, skiing, climbing, sailing. Anything that involves a controlled fall, I tend to enjoy. I've been working in Flutter for almost four years now and love the cross-platform operability and the ease of usability. As a developer, I've learned a lot working on this problem.</p>
+
+    <p>So today, I'm going to start with a very brief high-level context on Hope Street Group's problem space and the app we're building and how it's addressing that problem. Then a majority of our time will be spent talking about the problems we've encountered in that process and the ways we've addressed those.</p>
+
+    <h2>The Problem Space: Career Misalignment</h2>
+
+    <p>Hope Street Group, as I said, is a nonprofit. For over 20 years it's been building programs that expand access to trajectory-changing opportunities for all. Most recently, we've been building a Flutter application for high school students (secondary school students, as they're called here in Europe) using Flutter and ChatGPT to help them explore career options.</p>
+
+    <p>You may wonder why this is important. Well, it's been found that vision and ambition to pursue a specific career has a profound impact on whether a young person achieves it. A video clip we played at the talk summarized the issue well:</p>
+
+    <p><em>Watch the clip: <a href="https://youtu.be/eMjqJKviDBo" target="_blank" rel="noopener">Why you're probably not doing your "dream job"</a></em></p>
+
+    <p>To try to address this problem of misalignment, and maybe give these kids better vision and ambition, we're building this Flutter app to help high schoolers explore careers.</p>
+
+    <p>With this app, they can generate professionals they'd like to talk to and ask any kind of question &mdash; about career, career journey, salary, anything they can think of. Since December, we've launched in four schools in the US. The app is still in beta; being a nonprofit, it's completely free to schools and students. We're still learning a lot about students, and also about how to harness large language models to generate content for us. As you can see from our screenshots, the AI character sits at the core of our user experience and is the main value proposition for the students using the application.</p>
+
+    <h2>Generating AI Characters: A New Kind of Data Source</h2>
+
+    <p>So let's talk about generating these AI characters. For development, we may have manually generated thousands of characters, stashed them in a database, and queried them from there. As a front-end consumer, you would know the shape, content, and types of the data you get from the database &mdash; there's a server-client contract that defines this data, and that is what we build upon.</p>
+
+    <p>Now, using these models as our primary data source, you ask for a character of a helpful assistant and you get, "Hey, how can I assist you?" Or maybe, "Yo, what you need?" The contract isn't guaranteed. Shape, content, type is not a given. Your Flutter app, mobile front end, or the API between the two has a new set of responsibilities to make sure that data is as the front end needs and expects.</p>
+
+    <p>So for us, the goal is to deliver a consistent and reliable experience to our users while building in this new world of non-determinism. But we can't place our whole user experience on assuming the right shape, size, and type in the hands of a model when we're not completely certain what data will be returned. In other words, prompt engineering is not enough.</p>
+
+    <p>So how do we wrangle non-deterministic data into the shape, size, and type that we need for a reliable user experience? What follows is a list of steps we've taken to ensure a solid data structure and content typing for UI consumption. Some of these you're probably more familiar with. This isn't meant to be a formula or a playbook, rather just a menu of options where each will improve your app's resiliency.</p>
+
+    <p>We applied these at different layers of our application architecture, based on our app's maturity and use cases. Our app is still very young, and your circumstances might be different &mdash; and these tactics evolve over time. Recently, for example, JSON validation was added by model providers, which resolved a lot of the issues we'd had to work around, and it's possible some of these tactics will become unnecessary with upcoming releases. We don't know. But for now, here's what we've done.</p>
+
+    <h2>Starting Point: Prompting and Field Descriptions</h2>
+
+    <p>When we first started, we just took a JSON structure with descriptions for each field of what we needed and fed it to the model. And it did okay. But if you looked closely, there were some problems with the content generated. For example, "Doctor" is not technically part of a character's name, rather part of their role or title. Age and annual income would ideally be integers. "University of Excellence" is not a real school. And $85,000 a year may or may not be a realistic salary for this character.</p>
+
+    <p>So the first thing we did, and typically do, is improve the prompts and field descriptions. I'm not going to spend a ton of time talking about prompting &mdash; just know that adjusting these field descriptions and prompts by field improves the type, quality, and size of what comes back.</p>
+
+    <h2>Tuning API Parameters: Temperature and Top P</h2>
+
+    <p>We also adjusted the provided API parameters to see how they affected character generation &mdash; for example, temperature. Temperature is like being at a buffet with lots of food options and trying to decide what to pick. A lower temperature means "I like pizza, I'm gonna choose pizza" &mdash; a more confident but less creative choice. A higher temperature makes you try lots of different things, like sushi today, pizza tomorrow, and curry the day after.</p>
+
+    <p>Top P (top percentile) changes how many options you consider when making a decision &mdash; like how big your buffet is. A lower value means you're only looking at the top items on the menu, which makes decisions more predictable and limits variety.</p>
+
+    <p>We've played around with both of these, and overall they just affect how creative or chaotic the model's responses are. On one hand, for our product use case, we need more "chaos" and creativity to generate a broad range of characters, because we want students exploring the edges of what's possible. But on the other hand, we need the field values to be accurate and representative of the real world of real professionals, because we want those professionals to be useful to the student &mdash; and not set unrealistic expectations. So we optimize for breadth and more creativity, which also means we've had to mitigate inconsistency by field.</p>
+
+    <h2>Function Calling and Validation</h2>
+
+    <p>We use something called function calling. You'll notice a "generate professional profiles" tool &mdash; that's a function call: a tool you hand the assistant, generated as an option it can execute as part of your prompt. In our case, because of our prompts, it uses this tool every single time. The takeaway is that it gives you more granular control over the type and content of your JSON, by field and by key.</p>
+
+    <p>Even with function calling, the model may still hallucinate parameters &mdash; like in one case, "job" was missing entirely, which would break our UI. So for this we add validation &mdash; a simple validation, in our case just checking that all expected keys are present, though validation can be more or less complex than that.</p>
+
+    <p>The pattern here is: first we try to address the issue with prompting, and if we can't get it with prompting, then we implement validation. You don't want to over-validate for things that can be fixed with prompting. In one case, the LLM would be lazy, so we had to check that a field was long enough &mdash; that was funny.</p>
+
+    <div class="stat-line">
+      <span><strong>60&ndash;70%</strong> success rate before function calling</span>
+      <span><strong>90&ndash;99%</strong> success rate after function calling</span>
+    </div>
+
+    <p>For our application, the prompting, API calls, config, and validation were implemented in our business logic layer &mdash; that's where it made sense for us.</p>
+
+    <h2>Defaults and Sanitation for the Remaining Edge Cases</h2>
+
+    <p>And what about that last 1&ndash;9% of potential inconsistency? Even with function calling, good prompting, and validation, in these cases we use sanitation &mdash; we set defaults. Now, typically I wouldn't suggest setting defaults if you're depending on data from a NoSQL or SQL database, because in those cases you want your app to fail early and loudly so you can get to the root cause and fix it. But in this case, since we're generating random data and it's only a 1&ndash;5% likelihood we'll even hit this code path, I think it's okay to set a default here.</p>
+
+    <p>Some of our defaults have rationale behind them &mdash; for example, for age, we know students will relate to a 25-year-old professional more than a 58-year-old, so we default to 25 (you could also randomly generate this). In other cases we just use a placeholder so our UI doesn't break if we do hit that path.</p>
+
+    <p>Additionally, the model will sporadically do things like not capitalizing job titles &mdash; we'd like those capitalized, so we apply that transformation where necessary. For us, implementing sanitation, defaults, and transformations was done in what I'll call "the models" &mdash; really the data layer, whatever that looks like for your application. Experientially for me, it's the models, since we're a flatter, simpler architecture right now and very young in our journey. You may have a more sophisticated, mature app where it would be more appropriate to implement this elsewhere.</p>
+
+    <h2>Moderating User-Influenced Generation</h2>
+
+    <p>And finally, if you're generating data via LLMs dynamically based on user input, there are additional considerations, like: should the user input have a fixed length, be capitalized, or be moderated? These are questions that came up while we were testing with students. Some students generated less appropriate jobs.</p>
+
+    <p>At first we tried to address this with prompting, but we learned that ChatGPT was remarkably biased toward generating all kinds of jobs, especially when it came to sex work &mdash; and, as you can imagine, the schools we launched in did not hold the same position. So we had to find another way to moderate. Instead of trying to change character generation via prompting, we moved up the chain of events, and now we moderate the content before it's submitted for the completion request.</p>
+
+    <p>We use the moderation part of the API &mdash; but if you look closely at its categories (sexual, hate, harassment, self-harm), those don't map one-to-one with a job description or title. So we did use this, but we also used LLMs to generate our own list of inappropriate titles, including slang versions and common variants, and also embeddings, which you can use in combination with cosine similarity to identify these groupings and test against. We haven't implemented that yet, but maybe soon.</p>
+
+    <p>Last &mdash; and this is more basic front-end awareness, possibly more of an edge case &mdash; make sure that when user input directly impacts your response or result (like in our case, with custom generation, where our prompting specifically says whatever job title the user inputs needs to be the job title for the character), your UI can handle that input. For example, we had students generate exceptionally long job titles &mdash; one edge case &mdash; and if your UI isn't ready to handle it, it might break. So you'll see multi-line job title text as a result.</p>
+
+    <h2>Closing Thoughts</h2>
+
+    <p>So that's an overview. Like I said, these aren't meant to be a formula or playbook, rather a menu of options you can choose from to improve the resiliency of your app. We're also growing alongside these APIs &mdash; we're trying to stay on the edge as much as we can, and we don't always know what's coming, so it's possible all of these won't be necessary within the next year. We'll see.</p>
+
+    <p>If you'd like to check out our app, if you would like to use it to explore your next career step, you can &mdash; it's free, and it's on the iOS App Store. Thank you so much for your time. And that's it.</p>
       `
     },
   ];
@@ -785,7 +892,9 @@
       });
       html += `</div>`;
     });
-    const archiveItems = ARTICLES.filter(a => a.section === "archive");
+    const archiveItems = ARTICLES
+      .filter(a => a.section === "archive")
+      .sort((a, b) => b.dateISO.localeCompare(a.dateISO));
     if (archiveItems.length) {
       html += `<div class="side-nav-section">`;
       html += `<div class="side-label">Archive</div>`;

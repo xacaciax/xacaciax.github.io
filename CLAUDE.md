@@ -44,13 +44,16 @@ Archive articles live in the `ARTICLES` array and render as a full-page view.
   id:       "slug-here",
   title:    "...",
   subtitle: "...",
-  date:     "2026",
+  date:     "2026",           // display string
+  dateISO:  "2026-01-01",     // machine-readable (UTC), used for sort/filter — use the real month/day if known, else Jan 1
   section:  "archive",
   tags:     ["tag-a", "tag-b"],
   image:    null,             // or { src: "path/to/img.jpg", alt: "..." }
   body:     `...HTML...`,
 }
 ```
+
+The Archive sidebar list is sorted by `dateISO` (newest first), so this field must always be set.
 
 ### Body conventions
 
