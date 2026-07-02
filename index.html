@@ -2,20 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-  <title>A3C2I</title>
-  <meta name="description" content="Former teacher. Current software engineer. Have always been a builder. 
+  <script>
+    (function () {
+      var saved = localStorage.getItem("theme");
+      var theme = saved === "light" || saved === "dark"
+        ? saved
+        : (window.matchMedia && matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+
+  <title>{acacia}</title>
+  <meta name="description" content="Former teacher. Current software engineer. Have always been a builder.
 Building systems that empower humans to achieve their dreams.">
   <meta name="author" content="Acacia Pappas">
   <link rel="canonical" href="https://xacaciax.github.io/">
+  <meta id="theme-color-dark" name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+  <meta id="theme-color-light" name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
 
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Acacia Pappas">
   <meta property="og:description" content="Former teacher. Current software engineer. Have always been a builder. Building systems that empower humans to achieve their dreams.">
   <meta property="og:url" content="https://xacaciax.github.io/">
+  <meta property="og:image" content="https://xacaciax.github.io/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="profile:first_name" content="Acacia">
   <meta property="profile:last_name" content="Pappas">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Acacia Pappas">
+  <meta name="twitter:description" content="Former teacher. Current software engineer. Have always been a builder. Building systems that empower humans to achieve their dreams.">
+  <meta name="twitter:image" content="https://xacaciax.github.io/assets/og-image.png">
 
   <script type="application/ld+json">
   {
@@ -58,21 +83,79 @@ Building systems that empower humans to achieve their dreams.">
 
   <link rel="author" href="humans.txt">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; }
 
+    a, button { -webkit-tap-highlight-color: transparent; }
+
     :root {
-      --bg:        #0d0b0b;
-      --bg-raised: #141111;
-      --border:    #2a2626;
-      --border-hi: #3a3535;
-      --text:      #f1ecec;
-      --text-2:    #cfcecd;
-      --text-3:    #8a8484;
-      --text-4:    #565050;
-      --link:      #b0a898;
-      --link-hi:   #f1ecec;
+      color-scheme: dark;
+      --bg:        #0a0a0a;
+      --bg-raised: #141414;
+      --border:    #262626;
+      --border-hi: #666666;
+      --text:      #f2f2f2;
+      --text-2:    #cccccc;
+      --text-3:    #999999;
+      --text-4:    #808080;
+      --deep-orange-100: #ff573c;
+      --deep-orange-300: #ff653f;
+      --deep-orange-500: #ff6f43;
+      --deep-orange-600: #ff7946;
+      --deep-orange-700: #ff8248;
+      --deep-orange-500-hover: #e0521f;
+      --deep-orange-500-active: #b83f18;
+      --link:      #b3b3b3;
+      --link-hi:   #f2f2f2;
+      --font-sans: "Inter", -apple-system, "Helvetica Neue", Arial, sans-serif;
+      --font-mono: "JetBrains Mono", "Courier New", monospace;
+    }
+
+    :root[data-theme="light"] {
+      color-scheme: light;
+      --bg:        #ffffff;
+      --bg-raised: #f2f2f2;
+      --border:    #e0e0e0;
+      --border-hi: #808080;
+      --text:      #0a0a0a;
+      --text-2:    #333333;
+      --text-3:    #595959;
+      --text-4:    #666666;
+      --link:      #595959;
+      --link-hi:   #0a0a0a;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      body, #theme-toggle-icon {
+        transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+      }
+
+      #theme-toggle {
+        transition: opacity 0.15s ease;
+      }
+
+      #entry-nav button,
+      .article-nav button {
+        transition: transform 0.1s ease, border-color 0.15s ease, color 0.15s ease;
+      }
+
+      .side-nav-item,
+      .entry-link,
+      .link-row a,
+      .article-external-link a,
+      .article-body a,
+      .article-footer button,
+      #footer a {
+        transition: color 0.15s ease;
+      }
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--border-hi);
+      outline-offset: 2px;
     }
 
     body {
@@ -80,7 +163,7 @@ Building systems that empower humans to achieve their dreams.">
       padding: 0;
       background-color: var(--bg);
       color: var(--text);
-      font-family: "Courier Prime", "Courier New", monospace;
+      font-family: var(--font-sans);
       font-size: 13px;
       line-height: 1.6;
     }
@@ -98,9 +181,12 @@ Building systems that empower humans to achieve their dreams.">
     #index-view {
       max-width: 860px;
       margin: 0 auto;
-      padding: 48px 24px 80px;
+      padding-top: 48px;
+      padding-right: max(24px, env(safe-area-inset-right));
+      padding-bottom: max(80px, env(safe-area-inset-bottom));
+      padding-left: max(24px, env(safe-area-inset-left));
       display: grid;
-      grid-template-columns: 1fr 180px;
+      grid-template-columns: minmax(0, 1fr) 180px;
       grid-template-rows: auto auto auto auto;
       gap: 0 44px;
     }
@@ -111,13 +197,17 @@ Building systems that empower humans to achieve their dreams.">
       display: none;
       max-width: 680px;
       margin: 0 auto;
-      padding: 48px 24px 100px;
+      padding-top: 48px;
+      padding-right: max(24px, env(safe-area-inset-right));
+      padding-bottom: max(100px, env(safe-area-inset-bottom));
+      padding-left: max(24px, env(safe-area-inset-left));
     }
 
     #article-view.visible { display: block; }
 
     .article-nav {
-      font-size: 11px;
+      font-family: var(--font-mono);
+      font-size: 13px;
       color: var(--text-4);
       margin-bottom: 32px;
       padding-bottom: 14px;
@@ -132,18 +222,22 @@ Building systems that empower humans to achieve their dreams.">
       border: 1px solid var(--border);
       color: var(--link);
       font-family: inherit;
-      font-size: 11px;
+      font-size: 13px;
       padding: 3px 8px;
       cursor: pointer;
       border-radius: 2px;
     }
 
-    .article-nav button:hover {
+    .article-nav button:hover,
+    .article-nav button:active {
       border-color: var(--border-hi);
       color: var(--link-hi);
     }
 
+    .article-nav button:active { transform: scale(0.96); }
+
     .article-eyebrow {
+      font-family: var(--font-mono);
       font-size: 10px;
       text-transform: uppercase;
       letter-spacing: 0.12em;
@@ -161,12 +255,14 @@ Building systems that empower humans to achieve their dreams.">
     }
 
     .article-byline {
-      font-size: 12px;
+      font-size: 16px;
+      line-height: 1.4;
       color: var(--text-3);
       margin-bottom: 8px;
     }
 
     .article-meta {
+      font-family: var(--font-mono);
       font-size: 11px;
       color: var(--text-4);
       margin-bottom: 32px;
@@ -180,8 +276,8 @@ Building systems that empower humans to achieve their dreams.">
 
     .article-body {
       color: var(--text-2);
-      font-size: 14px;
-      line-height: 1.78;
+      font-size: 17px;
+      line-height: 1.6;
     }
 
     .article-body h2 {
@@ -200,6 +296,14 @@ Building systems that empower humans to achieve their dreams.">
     }
 
     .article-body p:last-child { margin-bottom: 0; }
+
+    .article-body a {
+      color: var(--link);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border-hi);
+    }
+
+    .article-body a:hover, .article-body a:active { color: var(--link-hi); }
 
     .article-body blockquote {
       border-left: 2px solid var(--border-hi);
@@ -225,6 +329,7 @@ Building systems that empower humans to achieve their dreams.">
     .stat-line strong { color: var(--text); font-weight: bold; font-size: 15px; }
 
     .article-footer {
+      font-family: var(--font-mono);
       border-top: 1px solid var(--border);
       padding-top: 12px;
       margin-top: 48px;
@@ -245,7 +350,7 @@ Building systems that empower humans to achieve their dreams.">
       padding: 0;
     }
 
-    .article-footer button:hover { color: var(--text-3); }
+    .article-footer button:hover, .article-footer button:active { color: var(--text-3); }
 
     #header {
       grid-column: 1 / -1;
@@ -259,30 +364,70 @@ Building systems that empower humans to achieve their dreams.">
       gap: 8px;
     }
 
+    #brand-mark {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    #brand-icon {
+      display: block;
+      border-radius: 50%;
+    }
+
+    #brand-name {
+      font-family: var(--font-mono);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+
     #header-subtitle {
       font-size: 12px;
       color: var(--text-3);
       margin-top: 6px;
     }
 
+    #theme-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 12px;
+      margin: -12px;
+      opacity: 0.7;
+    }
+
+    #theme-toggle:hover, #theme-toggle:active { opacity: 1; }
+
+    #theme-toggle-icon {
+      width: 19.5px;
+      height: 19.5px;
+      display: block;
+    }
+
     #header-subtitle a { color: var(--text-3); text-decoration: none; }
     #header-subtitle a:hover { color: var(--text); }
 
-    #header-links {
+    .link-row {
       display: flex;
       align-items: center;
       gap: 8px;
-      font-size: 12px;
+      font-size: 13px;
       color: var(--text-4);
     }
 
-    #header-links a { color: var(--text-3); text-decoration: none; }
-    #header-links a:hover { color: var(--text); }
+    .link-row a { color: var(--text-3); text-decoration: none; }
+    .link-row a:hover, .link-row a:active { color: var(--text); }
 
-    #sidebar { grid-column: 2; grid-row: 2; }
+    #sidebar { grid-column: 2; grid-row: 2; min-width: 0; }
 
     .side-label {
-      font-size: 10px;
+      font-family: var(--font-mono);
+      font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: var(--text-4);
@@ -296,15 +441,17 @@ Building systems that empower humans to achieve their dreams.">
       border-top: 1px solid var(--border);
       padding-top: 20px;
       margin-top: 20px;
-      font-size: 12px;
-      color: var(--text-4);
-      line-height: 1.65;
+      font-size: 16px;
+      color: var(--text-3);
+      line-height: 1.6;
     }
 
-    #about a { color: var(--text-4); text-decoration: none; }
-    #about a:hover { color: var(--text-3); }
+    #about a { color: var(--text-3); text-decoration: none; }
+    #about a:hover { color: var(--text); }
+    #about .link-row { margin-top: 14px; }
 
     #entry-nav {
+      font-family: var(--font-mono);
       display: flex;
       justify-content: space-between;
       margin-bottom: 24px;
@@ -315,16 +462,19 @@ Building systems that empower humans to achieve their dreams.">
       border: 1px solid var(--border);
       color: var(--link);
       font-family: inherit;
-      font-size: 11px;
+      font-size: 13px;
       padding: 3px 10px;
       cursor: pointer;
-      border-radius: 2px;
+      border-radius: 999px;
     }
 
-    #entry-nav button:hover:not(:disabled) {
+    #entry-nav button:hover:not(:disabled),
+    #entry-nav button:active:not(:disabled) {
       border-color: var(--border-hi);
       color: var(--link-hi);
     }
+
+    #entry-nav button:active:not(:disabled) { transform: scale(0.96); }
 
     #entry-nav button:disabled {
       opacity: 0.25;
@@ -332,10 +482,10 @@ Building systems that empower humans to achieve their dreams.">
     }
 
     .entry-question {
-      font-size: 17px;
+      font-size: 21px;
       font-weight: bold;
       color: var(--text);
-      line-height: 1.4;
+      line-height: 1.35;
       margin: 0 0 18px;
       letter-spacing: -0.01em;
     }
@@ -350,14 +500,14 @@ Building systems that empower humans to achieve their dreams.">
     }
 
     .entry-context {
-      font-size: 13px;
+      font-size: 16px;
       color: var(--text-2);
-      line-height: 1.75;
+      line-height: 1.6;
       margin: 0 0 18px;
     }
 
     .entry-context code {
-      font-family: inherit;
+      font-family: var(--font-mono);
       color: var(--text-2);
       background: var(--bg-raised);
       border: 1px solid var(--border);
@@ -367,6 +517,7 @@ Building systems that empower humans to achieve their dreams.">
     }
 
     .entry-meta {
+      font-family: var(--font-mono);
       font-size: 11px;
       color: var(--text-4);
       display: flex;
@@ -389,7 +540,7 @@ Building systems that empower humans to achieve their dreams.">
       padding: 0;
     }
 
-    .entry-link:hover { color: var(--link-hi); border-bottom-color: var(--link); }
+    .entry-link:hover, .entry-link:active { color: var(--link-hi); border-bottom-color: var(--link); }
 
     .article-coming-soon {
       color: var(--text-4);
@@ -411,9 +562,10 @@ Building systems that empower humans to achieve their dreams.">
       border-bottom: 1px solid var(--border-hi);
     }
 
-    .article-external-link a:hover { color: var(--link-hi); }
+    .article-external-link a:hover, .article-external-link a:active { color: var(--link-hi); }
 
     .q-tag {
+      font-family: var(--font-mono);
       background: var(--bg-raised);
       border: 1px solid var(--border);
       color: var(--text-4);
@@ -428,7 +580,7 @@ Building systems that empower humans to achieve their dreams.">
 
     .side-nav-item {
       display: block;
-      font-size: 11px;
+      font-size: 13px;
       color: var(--link);
       text-decoration: none;
       line-height: 1.45;
@@ -442,12 +594,13 @@ Building systems that empower humans to achieve their dreams.">
       width: 100%;
     }
 
-    .side-nav-item:hover { color: var(--link-hi); }
+    .side-nav-item:hover, .side-nav-item:active { color: var(--link-hi); }
     .side-nav-item.active { color: var(--text); }
 
     .side-nav-date {
+      font-family: var(--font-mono);
       display: block;
-      font-size: 10px;
+      font-size: 11px;
       color: var(--text-4);
       margin-bottom: 1px;
     }
@@ -471,27 +624,30 @@ Building systems that empower humans to achieve their dreams.">
     }
 
     #footer a { color: var(--text-4); text-decoration: none; }
-    #footer a:hover { color: var(--text-3); }
+    #footer a:hover, #footer a:active { color: var(--text-3); }
 
     @media (max-width: 600px) {
       #index-view {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         grid-template-rows: auto;
-        padding: 28px 18px 60px;
+        padding-top: 28px;
+        padding-right: max(18px, env(safe-area-inset-right));
+        padding-bottom: max(60px, env(safe-area-inset-bottom));
+        padding-left: max(18px, env(safe-area-inset-left));
         gap: 0;
       }
 
       #header { margin-bottom: 24px; flex-direction: column; align-items: flex-start; gap: 12px; }
 
-      #header-links {
+      .link-row {
         gap: 16px;
         font-size: 13px;
       }
 
-      #header-links .dot { display: none; }
+      .link-row .dot { display: none; }
 
-      #header-links a {
-        padding: 4px 0;
+      .link-row a {
+        padding: 10px 0;
       }
 
       #content {
@@ -509,21 +665,48 @@ Building systems that empower humans to achieve their dreams.">
 
       .side-nav-section { margin-bottom: 16px; }
 
+      .side-nav-item {
+        padding: 10px 0;
+        margin-bottom: 0;
+      }
+
       #about {
         margin-top: 32px;
         padding-top: 20px;
       }
 
       #entry-nav button {
-        padding: 8px 16px;
+        padding: 13px 18px;
+      }
+
+      .entry-question { font-size: 19px; }
+
+      .entry-link {
+        padding: 12px 0;
         font-size: 13px;
       }
 
-      .entry-question { font-size: 15px; }
+      #article-view {
+        padding-top: 28px;
+        padding-right: max(18px, env(safe-area-inset-right));
+        padding-bottom: max(60px, env(safe-area-inset-bottom));
+        padding-left: max(18px, env(safe-area-inset-left));
+      }
 
-      #article-view { padding: 28px 18px 60px; }
+      .article-title { font-size: 20px; }
 
-      .article-title { font-size: 18px; }
+      .article-nav button {
+        padding: 12px 16px;
+      }
+
+      .article-footer button {
+        padding: 12px 0;
+        font-size: 13px;
+      }
+
+      #footer a {
+        padding: 8px 0;
+      }
 
       .stat-line { gap: 16px; }
     }
@@ -535,15 +718,16 @@ Building systems that empower humans to achieve their dreams.">
 
   <div id="header">
     <div>
-      <canvas id="wordmark-canvas" height="20" style="margin-bottom:4px;"></canvas>
+      <div id="brand-mark">
+        <img id="brand-icon" src="assets/header-mark.png" alt="" width="35" height="35">
+        <span id="brand-name">{acacia}</span>
+      </div>
       <div id="header-subtitle">Essays, articles, and experiments.</div>
     </div>
-    <nav id="header-links">
-      <a href="https://github.com/xacaciax" target="_blank">github</a>
-      <span class="dot">&middot;</span>
-      <a href="https://www.linkedin.com/in/acaciapappas/" target="_blank">linkedin</a>
-      <span class="dot">&middot;</span>
-      <a href="https://x.com/xacaciax_" target="_blank">twitter</a>
+    <nav id="header-links" class="link-row">
+      <button id="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="false">
+        <img id="theme-toggle-icon" src="assets/theme-icon-cream.png" alt="">
+      </button>
     </nav>
   </div>
 
@@ -560,13 +744,21 @@ Building systems that empower humans to achieve their dreams.">
   </aside>
 
   <div id="about">
-    <p>Hi, I'm Acacia Pappas. I am a human. I like building and creating. My preferred toolkit: words, languages, computers, story, pencil and paper, books and blogs and other platforms optimized for empowering humanity by sharing information, and more recently any number of large language models. I value honesty and kindness. I am currently serving as interim CTO at <a href="https://www.hopestreetgroup.org/" target="_blank" rel="noopener">Hope Street Group</a>.</p>
+    <p>Hi, I'm Acacia Pappas. I am a human. I like building and creating. My preferred toolkit: words, languages, computers, story, pencil and paper, books and blogs and other platforms optimized for empowering humanity by sharing information, and more recently any number of large language models. I am currently serving as interim CTO at <a href="https://www.hopestreetgroup.org/" target="_blank" rel="noopener">Hope Street Group</a>.</p>
+    <nav class="link-row" aria-label="Social links">
+      <a href="https://github.com/xacaciax" target="_blank">github</a>
+      <span class="dot">&middot;</span>
+      <a href="https://www.linkedin.com/in/acaciapappas/" target="_blank">linkedin</a>
+      <span class="dot">&middot;</span>
+      <a href="https://x.com/xacaciax_" target="_blank">twitter</a>
+    </nav>
   </div>
 
   <div id="footer">
-    <span>A3C2I &mdash; <span id="updated"></span></span>
+    <span>© 2026 Acacia Pappas. All rights reserved. &mdash; <span id="updated"></span></span>
     <a href="humans.txt">humans.txt</a>
   </div>
+
 
 </div>
 
@@ -575,7 +767,7 @@ Building systems that empower humans to achieve their dreams.">
 
   <div class="article-nav">
     <button onclick="hideArticle()">&larr; back</button>
-    <span id="art-nav-crumb">A3C2I</span>
+    <span id="art-nav-crumb">{acacia}</span>
   </div>
 
   <div class="article-eyebrow" id="art-eyebrow"></div>
@@ -604,8 +796,8 @@ Building systems that empower humans to achieve their dreams.">
       id:       "educator-to-engineer",
       title:    "From Educator to Engineer",
       subtitle: "How the I/Own It Scholarship Launched my Career in Tech",
-      date:     "2018",
-      dateISO:  "2018-01-01",
+      date:     "August 2019",
+      dateISO:  "2019-08-01",
       section:  "archive",
       tags:     ["career", "diversity", "bootcamp", "Hack Reactor", "Optimizely"],
       image:    null,
@@ -672,9 +864,9 @@ Building systems that empower humans to achieve their dreams.">
     },
     {
       id:       "flutter-non-deterministic-data",
-      title:    "Flutter Apps in the New Age of Non-Deterministic Data",
+      title:    "Building Reliable Applications in the New Age of Non-Deterministic Data",
       subtitle: "Building mobile applications that consume predominantly non-deterministic data pose a new and unique set of challenges. This talk given at FlutterCon 2024 in Berlin reviews ways to wrangle non-determinitistic data into more a reliable / usable structure.",
-      date:     "2024",
+      date:     "July 2024",
       dateISO:  "2024-07-03",
       section:  "archive",
       tags:     ["Flutter", "LLM", "AI", "mobile", "Fluttercon", "data validation"],
@@ -682,9 +874,9 @@ Building systems that empower humans to achieve their dreams.">
       body: `
     <p><em>Acacia Pappas | Fluttercon EU 2024</em></p>
 
-    <p><em>Watch the talk: <a href="https://youtu.be/dA9lxvE9Pkw" target="_blank" rel="noopener">Flutter Apps in the New Age of Non-Deterministic Data</a></em></p>
+    <p><em>Watch the talk: <a href="https://youtu.be/dA9lxvE9Pkw" target="_blank" rel="noopener">Building Reliable Applications in the New Age of Non-Deterministic Data</a></em></p>
 
-    <p><em>Slides: <a href="https://docs.google.com/presentation/d/1MlNjs8pVHNweS3rkdo2sUYzpK_39ufmpprp9a-QPZPE/edit?usp=sharing" target="_blank" rel="noopener">Flutter Apps in the New Age of Non-Deterministic Data Slides</a></em></p>
+    <p><em>Slides: <a href="https://docs.google.com/presentation/d/1MlNjs8pVHNweS3rkdo2sUYzpK_39ufmpprp9a-QPZPE/edit?usp=sharing" target="_blank" rel="noopener">Building Reliable Applications in the New Age of Non-Deterministic Data Slides</a></em></p>
 
     <p>Thank you for being here. My name is Acacia, and today I'm going to be speaking to you about how to build resilient Flutter applications using non-deterministic data.</p>
 
@@ -778,7 +970,7 @@ Building systems that empower humans to achieve their dreams.">
     const e = ENTRIES.find(e => e.id === id);
     if (!e) return;
 
-    document.getElementById("art-nav-crumb").textContent = `A3C2I · ${e.section}`;
+    document.getElementById("art-nav-crumb").textContent = `{acacia} · ${e.section}`;
     document.getElementById("art-eyebrow").textContent = `${e.section} · ${e.date}`;
     document.getElementById("art-title").textContent = e.question;
     document.getElementById("art-subtitle").textContent = "";
@@ -804,7 +996,7 @@ Building systems that empower humans to achieve their dreams.">
     const a = ARTICLES.find(a => a.id === id);
     if (!a) return;
 
-    document.getElementById("art-nav-crumb").textContent = `A3C2I · ${a.section}`;
+    document.getElementById("art-nav-crumb").textContent = `{acacia} · ${a.section}`;
     document.getElementById("art-eyebrow").textContent = `${a.section} · ${a.date}`;
     document.getElementById("art-title").textContent = a.title;
     document.getElementById("art-subtitle").textContent = a.subtitle;
@@ -934,31 +1126,47 @@ Building systems that empower humans to achieve their dreams.">
   document.getElementById("updated").textContent =
     "updated " + new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" });
 
-  // ── Pixel wordmark ──────────────────────────────────────────
+  // ── Theme toggle ─────────────────────────────────────────────
   (function () {
-    const CHARS = {
-      A: [0,1,1,1,0, 1,0,0,0,1, 1,0,0,0,1, 1,1,1,1,1, 1,0,0,0,1, 1,0,0,0,1, 1,0,0,0,1],
-      3: [1,1,1,1,0, 0,0,0,0,1, 0,0,0,0,1, 0,1,1,1,0, 0,0,0,0,1, 0,0,0,0,1, 1,1,1,1,0],
-      C: [0,1,1,1,1, 1,0,0,0,0, 1,0,0,0,0, 1,0,0,0,0, 1,0,0,0,0, 1,0,0,0,0, 0,1,1,1,1],
-      2: [0,1,1,1,0, 1,0,0,0,1, 0,0,0,0,1, 0,0,1,1,0, 0,1,0,0,0, 1,0,0,0,0, 1,1,1,1,1],
-      I: [1,1,1,1,1, 0,0,1,0,0, 0,0,1,0,0, 0,0,1,0,0, 0,0,1,0,0, 0,0,1,0,0, 1,1,1,1,1],
-    };
-    const ORDER = ['A','3','C','2','I'];
-    const PX = 3, GAP = PX + 1, W = 5, H = 7;
-    const canvas = document.getElementById("wordmark-canvas");
-    const totalW = ORDER.length * W * PX + (ORDER.length - 1) * GAP;
-    canvas.width = totalW;
-    canvas.height = H * PX;
-    const ctx = canvas.getContext("2d");
-    ORDER.forEach((ch, ci) => {
-      const bits = CHARS[ch];
-      const ox = ci * (W * PX + GAP);
-      for (let r = 0; r < H; r++)
-        for (let c = 0; c < W; c++) {
-          ctx.fillStyle = bits[r * W + c] ? "#f1ecec" : "#2a2626";
-          ctx.fillRect(ox + c * PX, r * PX, PX, PX);
-        }
+    const ICONS = { dark: "assets/theme-icon-cream.png", light: "assets/theme-icon-navy.png" };
+    const THEME_COLOR = { dark: "#0a0a0a", light: "#ffffff" };
+    const LABEL = { dark: "Switch to light mode", light: "Switch to dark mode" };
+
+    const root = document.documentElement;
+    const btn = document.getElementById("theme-toggle");
+    const icon = document.getElementById("theme-toggle-icon");
+    const metaDark = document.getElementById("theme-color-dark");
+    const metaLight = document.getElementById("theme-color-light");
+    let theme = root.getAttribute("data-theme") === "light" ? "light" : "dark";
+
+    function render() {
+      root.setAttribute("data-theme", theme);
+      icon.src = ICONS[theme];
+      btn.setAttribute("aria-pressed", String(theme === "light"));
+      btn.setAttribute("aria-label", LABEL[theme]);
+      // collapse both theme-color metas to the resolved color so browser
+      // chrome reflects the user's manual choice, not just the OS preference
+      metaDark.removeAttribute("media");
+      metaLight.removeAttribute("media");
+      metaDark.setAttribute("content", THEME_COLOR[theme]);
+      metaLight.setAttribute("content", THEME_COLOR[theme]);
+    }
+
+    btn.addEventListener("click", () => {
+      theme = theme === "dark" ? "light" : "dark";
+      localStorage.setItem("theme", theme);
+      render();
     });
+
+    if (window.matchMedia) {
+      matchMedia("(prefers-color-scheme: light)").addEventListener("change", (e) => {
+        if (localStorage.getItem("theme")) return;
+        theme = e.matches ? "light" : "dark";
+        render();
+      });
+    }
+
+    render();
   })();
 
   (function () {
