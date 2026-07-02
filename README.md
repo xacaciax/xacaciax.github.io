@@ -1,2 +1,1 @@
-# xacaciax.github.io
-# xacaciax.github.io
+A simple site to share essays, thoughts, and experiments. 
