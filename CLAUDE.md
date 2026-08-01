@@ -61,11 +61,22 @@ The Archive sidebar list is sorted by `dateISO` (newest first), so this field mu
 |---|---|
 | Paragraph     | `<p>text</p>` |
 | Section header | `<h2>Title</h2>` |
-| Pull quote    | `<blockquote>quote</blockquote>` |
-| Stat callout  | `<div class="stat-line"><span><strong>77%</strong> label</span></div>` |
+| Emphasis      | `<em>sentence</em>` inline at the end of a `<p>` |
+| Code block    | `<pre><code>…</code></pre>` |
 | Inline code   | `<code>snippet</code>` |
+| Quotation     | `<blockquote>quote</blockquote>` — external sources only, see Prose style |
+| Stat callout  | `<div class="stat-line">…</div>` — legacy, don't add new ones |
 
-Do not wrap `body` in a `<div>` — it is injected directly into `.article-body`.
+Do not wrap `body` in a `<div>` — it is injected directly into `.article-body`. Article bodies are plain sibling elements (`<p>`, `<h2>`, `<pre>`, `<ul>`) with no wrapper divs; a stray `</div>` closes `.article-body` early and breaks the rest of the page layout.
+
+### Prose style
+
+Prefer prose over visual callouts. The default is a paragraph.
+
+- **No pull quotes.** Don't use `<blockquote>` to emphasize a line of your own writing. Fold the sentence onto the end of the paragraph it follows and wrap it in `<em>`. A pull quote that repeats nearby prose is clutter. Reserve `<blockquote>` for genuine external quotation.
+- **No stat callouts in narrative articles.** `.stat-line` exists for older articles and still renders, but don't add new ones. Work figures into the sentence instead: "46% opened the app outside class, and retention held at 76%."
+- When removing a callout, check the paragraph above it for a dangling lead-in (a trailing `:` or "the signals were loud:") and rewrite that sentence so it stands on its own.
+- `<pre><code>` is for literal code and data payloads only — never for emphasis or quotation.
 
 ### Step 2 — No separate index entry needed
 

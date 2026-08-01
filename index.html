@@ -360,6 +360,36 @@ Building systems that empower humans to achieve their dreams." />
         margin-bottom: 28px;
       }
 
+      .article-body pre {
+        background: var(--bg-raised);
+        border: 1px solid var(--border);
+        border-radius: 2px;
+        margin: 28px 0;
+        padding: 20px 22px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .article-body pre code {
+        display: block;
+        font-family: var(--font-mono);
+        font-size: 12.5px;
+        line-height: 1.7;
+        color: var(--text-3);
+        white-space: pre;
+        tab-size: 2;
+      }
+
+      .article-body :not(pre) > code {
+        font-family: var(--font-mono);
+        font-size: 0.88em;
+        background: var(--bg-raised);
+        border: 1px solid var(--border);
+        border-radius: 2px;
+        padding: 1px 5px;
+        color: var(--text-3);
+      }
+
       .stat-line {
         background: var(--bg-raised);
         border: 1px solid var(--border);
@@ -1248,36 +1278,56 @@ Landed while ChatGPT was still compounding off that base and made the paid Plus 
 
     <p>Before any production code was written, the early founding team explored the problem in the physical world. They took students to visit real workplaces, Google, trade schools, an architecture firm, a restaurant, a tattoo parlor, fifteen students across a single summer program. They connected students directly with professionals in fields the students said they cared about.</p>
 
-    <p>Students could be exposed to professionals in the industry of their interest but they did not know what to do with that access. Students froze: they didn't know how to ask, or what they even wanted to explore.</p>
+    <p>Students could be exposed to professionals in the industry of their interest but they did not know what to do with that access. Students froze: they didn't know how to ask, or what they even wanted to explore. <em>The gap wasn't the opportunity, it was knowing how to turn the in-person meeting into something valuable for their own future goals.</em></p>
 
-    <blockquote>The gap wasn't the opportunity, it was knowing how to turn the in-person meeting into something valuable for their own future goals.</blockquote>
-
-    <p>From this insight, Will prototyped a simple Flutter app using conversational AI, something that could meet a student where they were. And GPT-4-class models had just made that plausible for the first time.</p>
-
-    <p><strong>Dec 2023</strong> — Will prototypes HopeST v0<br>
-Codenamed Pathfinder, a cross-platform mobile app that put an AI career coach — Hope — in every student's pocket.</p>
+    <p><strong>Dec 2023</strong> — Will prototypes HopeST v0 Codenamed Pathfinder, a cross-platform mobile app that put an AI career coach in every student's pocket.</p>
 
     <p>The first version was simple: onboarding, generating professionals, and chatting. Onboarding collected identity for auth, interests and hobbies, and how much money the student wanted to make someday. That was the input to a single completion call that generated six JSON characters — six fictional professionals tuned to the student. They appeared on the home screen. Persisting at the top were Teezo, a résumé builder, and Hope herself, the career advisor. A chat was a completion initialized with a system prompt that told the model to become the character, seeded with that character's JSON. Students could flip through their six professionals, generate new ones, and talk to any of them.</p>
 
+    <pre><code>{
+  "name": "Dr. Priya Ramanathan",
+  "role": "Marine Conservation Biologist",
+  "employer": "Coastal Reef Research Institute",
+  "location": "Monterey Bay, California",
+  "backstory": "Priya grew up landlocked in Fresno and never saw the ocean until a high school field trip. A single tide-pool afternoon rerouted her whole life. She now leads kelp-forest restoration dives and mentors first-gen students entering the field.",
+  "pathway": "STEM / Environmental Science",
+  "day_in_the_life": [
+    "Pre-dawn dive to tag rockfish",
+    "Log data and water samples on the boat",
+    "Afternoon lab analysis",
+    "Mentor session with an intern"
+  ],
+  "core_skills": [
+    "scientific observation",
+    "data logging",
+    "scuba certification",
+    "grant writing"
+  ],
+  "education_path": "B.S. Marine Biology → M.S. Conservation Science",
+  "opening_line": "You picked marine bio? Good — let me show you what a Tuesday actually looks like out here.",
+  "reflection_question": "Priya rerouted her life after one field trip. What's one experience that's made you curious enough to want more?"
+}</code></pre>
+
     <p><strong>Jan 2024</strong> — Launched at Sutter Union High School</p>
 
-    <p>Sutter was the first real validation, through Charm Hopkins, the CTE coordinator who championed the product. Roughly 200 students came online in the first few days. The signals were loud:</p>
-
-    <div class="stat-line">
-      <span><strong>46%</strong> opened outside class</span>
-      <span><strong>76%</strong> retention</span>
-      <span><strong>200</strong> students</span>
-    </div>
+    <p>Sutter was the first real validation, through Charm Hopkins, the CTE coordinator who championed the product. Roughly 200 students came online in the first few days. The signals were loud: 46% opened the app outside class, and retention held at 76%.</p>
 
     <p>For a career tool aimed at teenagers, that number alone was surprising — and the app made a teacher cry, in a good way.</p>
 
-    <p>In February I joined the team.</p>
+    <p><strong>Feb 2024</strong> — I joined the team.</p>
 
-    <p>The most exciting thing about the app was the breadth. It was a career fair in your pocket, available any time you needed it.</p>
+    <p>The most exciting thing about the app was the <italic>breadth</italic>. It was a career fair in your pocket, available any time you needed it. Any profession or career you could imagine, useful answers, at your fingertips.</p>
 
-    <p>But the classroom runs exposed the seams. Onboarding times were wildly inconsistent — some students moved through the form in a minute, others took fifteen. And students, being students, immediately probed the limits of character generation, asking for the most inappropriate careers they could invent.</p>
+    <p>Onboarding times were wildly inconsistent — some students moved through the form in a minute, others took fifteen. And students, being students, immediately probed the limits of character generation, asking for the most inappropriate careers they could invent.</p>
 
-    <p>We added a moderation layer that ran against every completion and intercepted requests that weren't school-appropriate. There was real internal debate about what inappropriate even means for a job; we ended up letting the broader norms of schools set the line.</p>
+    <p>Example student requests:</p>
+    <p>goon</p>
+    <p>OF girlie</p>
+    <p>kingpin</p>
+    <p>spicy content creator</p>
+    <p>...</p>
+
+    <p>We had some internal discussion about moderation boundaries. At the end of the day, schools and teachers did not want these professions being surfacable in the app so we added a moderation layer that ran against every completion and intercepted requests that weren't school-appropriate. There was real internal debate about what inappropriate even means for a job; we ended up letting the broader norms of schools set the line.</p>
 
     <p>Then we rebuilt the whole thing around a bet: make Hope agentic. I tore out the form and made onboarding itself a chat, the very first thing a student hits after authenticating is Hope saying hello. We wrote a tool call that instructed the model to invoke it once it judged it had enough to make a useful recommendation, ideally within four to six exchanges. Three profiles would appear inline, and the student could scroll and pick one or all to talk to.</p>
 
@@ -1285,9 +1335,7 @@ Codenamed Pathfinder, a cross-platform mobile app that put an AI career coach �
 Became the free-tier default; weekly actives grew toward 300 million by December.</p>
 
     <p><strong>Aug 2024</strong> — Sutter, again<br>
-A ~200-freshman cohort stress-tested the rebuild and blazed through the conversational onboarding, reaching a character chat in under two minutes.</p>
-
-    <blockquote>That was the moment capability stopped being the bottleneck.</blockquote>
+A ~200-freshman cohort stress-tested the rebuild and blazed through the conversational onboarding, reaching a character chat in under two minutes. <em>That was the moment capability stopped being the bottleneck.</em></p>
 
     <p>Students weren't just answering prompts; they were steering. "I don't like underwater welding — can I talk to some construction workers?" (going broader). "I like leading and technology — what roles in the Air Force combine both?" (going deeper). That dynamic, chat-driven exploration is still in the mobile app today, used in schools and at home across the country. Models were getting better, but our problem now became everything around it.</p>
 
@@ -1304,15 +1352,7 @@ Reasoning models reached consumers; ChatGPT climbed toward 400 million weekly ac
 
     <p>We shipped on Android to widen access, but school sentiment toward mobile was souring, they didn't want phones in the classroom. IT friction to get a mobile app approved was punishing. We experimented with Android on Chromebooks; depending on district IT was its own tax. So we shipped the app on the web and served it straight from the browser: no install, no app store, no approval queue. That was the real unlock for the classroom.</p>
 
-    <div class="stat-line">
-      <span><strong>25%</strong> returning outside class</span>
-      <span><strong>3–12%</strong> industry norm</span>
-      <span><strong>560</strong> messages (power user, one week)</span>
-    </div>
-
-    <p>Somewhere in here the strategy itself flipped. We had stopped being capability-bottlenecked and started being institution-bottlenecked.</p>
-
-    <blockquote>The path to every student didn't run around teachers, it ran through them.</blockquote>
+    <p>Somewhere in here the strategy itself flipped. We had stopped being capability-bottlenecked and started being institution-bottlenecked. <em>The path to every student didn't run around teachers, it ran through them.</em></p>
 
     <p>So we stopped optimizing purely for the student and started building for the classroom.</p>
 
@@ -1345,13 +1385,6 @@ The app crosses a billion monthly users in June 2026 — the fastest in history.
 
     <p>With v2 of the classroom app we ran spring pilots. One district, Corona-Norco, our first district-level contract at $200K over two years, covering grades 5–8 and roughly 15,000 students, wanted us to help middle schoolers explore CTE pathways, which meant ingesting their curriculum data. So we built a RAG system and evolved quests past chat into experiences a younger student can actually navigate. We integrated with Clever. Hope has more tools and more local context now, and the quest experience keeps widening as we learn how to support students, teachers, schools, and districts at once.</p>
 
-    <div class="stat-line">
-      <span><strong>20K</strong> students</span>
-      <span><strong>300+</strong> schools</span>
-      <span><strong>12</strong> states</span>
-      <span><strong>94%</strong> report more clarity</span>
-    </div>
-
     <p>The reach today is real but early. The target is 200,000 students next, and half a million within three years.</p>
 
     <p><strong>Jun 2026</strong> — GPT-5.6 preview<br>
@@ -1359,9 +1392,7 @@ Limited to trusted partners via API for now; not yet reflected in public adoptio
 
     <h2>The student stays in the driver's seat</h2>
 
-    <p>One design decision I'd defend hardest, that Hope never become autonomous. Student input should always steer. We want a student's interests, curiosity, and goals to drive the experience, not a system that quietly drives for them.</p>
-
-    <blockquote>Internally we call it intentional friction: Hope is a collaborator, not a ghostwriter.</blockquote>
+    <p>One design decision I'd defend hardest, that Hope never become autonomous. Student input should always steer. We want a student's interests, curiosity, and goals to drive the experience, not a system that quietly drives for them. <em>Internally we call it intentional friction: Hope is a collaborator, not a ghostwriter.</em></p>
 
     <p>Hope may pick up helper agents for specific tasks, but the wheel stays with the student.</p>
 
