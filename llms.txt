@@ -4,7 +4,11 @@ Software engineer. Former educator. Currently serving as interim CTO at Hope Str
 
 ## About
 
-This site is a personal engineering portfolio. It tracks questions I'm wrestling with, things I've figured out, and work that came out of it. 
+This site is a personal engineering portfolio. It tracks questions I'm wrestling with, things I've figured out, and work that came out of it.
+
+## Now
+
+- Scaling Hope AI through capability, distribution, and context (August 2026) — The story of building Hope AI from a career-advisor chatbot into a classroom platform serving 20,000+ students across 300+ schools, told through three evolving bottlenecks: model capability, institutional distribution, and local context. Built against the ChatGPT adoption boom from November 2022 through June 2026.
 
 ## Writing
 

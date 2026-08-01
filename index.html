@@ -1026,6 +1026,105 @@ Building systems that empower humans to achieve their dreams.">
     </ul>
       `
     },
+    {
+      id:       "scaling-hope-ai",
+      title:    "Scaling Hope AI through capability, distribution, and context",
+      subtitle: "This is the story of scaling Hope AI from a pocket career advisor to a platform grounded in each school's and district's context.",
+      date:     "August 2026",
+      dateISO:  "2026-08-01",
+      section:  "now",
+      tags:     ["Hope Street Group", "AI", "LLM", "EdTech", "mobile", "product", "engineering"],
+      image:    null,
+      body: `
+    <p class="article-summary">As a founding engineer, I've driven Hope AI's evolution from a career-advisor chatbot in a student's pocket into Hope Street, a classroom platform now guiding more than 20,000 students across 300+ schools. This is the story of that build set against the ChatGPT adoption boom happening underneath it, and how our hardest problem kept moving: from making the AI capable, to getting it into classrooms, to grounding it in each school's local context.</p>
+
+    <p>In November 2022, ChatGPT reached a million users in five days and a hundred million monthly actives in about two months — faster than Instagram managed in two and a half years, faster than TikTok in nine. By June 2026 the ChatGPT app had crossed a billion monthly users, the fastest any app in history has hit that mark. I spent the last two and a half years building a product on top of the models underneath that curve.</p>
+
+    <p>Building on a foundation that improves every few months is a strange kind of engineering. The ground keeps shifting and rising. What I found most interesting, looking back was watching where our bottleneck moved. Early on, the thing standing between a student and a useful career conversation was model capability. Then capability stopped being the hard part, and distribution became the wall. Then distribution cracked, and the frontier moved again — to context. This is the story of Hope AI told through those three bottlenecks, against the boom happening in the background.</p>
+
+    <h2>Act I — Capability</h2>
+
+    <p><strong>Nov 2022</strong> — ChatGPT (GPT-3.5). A million users in five days; a hundred million monthly actives in two months.</p>
+
+    <p><strong>Mar 2023</strong> — GPT-4. Landed while ChatGPT was still compounding off that base and made the paid Plus tier the default for power users.</p>
+
+    <p>Before any production code was written, the early founding team explored the problem in the physical world. They took students to visit real workplaces, Google, trade schools, an architecture firm, a restaurant, a tattoo parlor, fifteen students across a single summer program. They connected students directly with professionals in fields the students said they cared about. Students could be exposed to professionals in the industry of their interest but they did not know what to do with that access. Students froze: they didn't know how to ask, or what they even wanted to explore. The gap wasn't the opportunity, it was knowing how to turn the in-person meeting into something valuable for their own future goals.</p>
+
+    <p>From this insight, Will prototyped a simple Flutter app using conversational AI, something that could meet a student where they were. And GPT-4-class models had just made that plausible for the first time.</p>
+
+    <p><strong>Dec 2023</strong> — Will prototypes HopeST v0. Codenamed Pathfinder, a cross-platform mobile app that put an AI career coach — Hope — in every student's pocket.</p>
+
+    <p>The first version was simple: onboarding, generating professionals, and chatting. Onboarding collected identity for auth, interests and hobbies, and how much money the student wanted to make someday. That was the input to a single completion call that generated six JSON characters — six fictional professionals tuned to the student. They appeared on the home screen. Persisting at the top were Teezo, a résumé builder, and Hope herself, the career advisor. A chat was a completion initialized with a system prompt that told the model to become the character, seeded with that character's JSON. Students could flip through their six professionals, generate new ones, and talk to any of them.</p>
+
+    <p><strong>Jan 2024</strong> — Launched at Sutter Union High School.</p>
+
+    <p>Sutter was the first real validation, through Charm Hopkins, the CTE coordinator who championed the product. Roughly 200 students came online in the first few days. The signals were loud: 46% of them opened the app outside of class — for a career tool aimed at teenagers, that number alone was surprising — the early cohort held 76% retention, and the app made a teacher cry, in a good way.</p>
+
+    <p>In February I joined the team.</p>
+
+    <p>The most exciting thing about the app was the breadth. It was a career fair in your pocket, available any time you needed it. But the classroom runs exposed the seams. Onboarding times were wildly inconsistent — some students moved through the form in a minute, others took fifteen. And students, being students, immediately probed the limits of character generation, asking for the most inappropriate careers they could invent. We added a moderation layer that ran against every completion and intercepted requests that weren't school-appropriate. There was real internal debate about what inappropriate even means for a job; we ended up letting the broader norms of schools set the line.</p>
+
+    <p>Then we rebuilt the whole thing around a bet: make Hope agentic. I tore out the form and made onboarding itself a chat, the very first thing a student hits after authenticating is Hope saying hello. We wrote a tool call that instructed the model to invoke it once it judged it had enough to make a useful recommendation, ideally within four to six exchanges. Three profiles would appear inline, and the student could scroll and pick one or all to talk to.</p>
+
+    <p><strong>May 2024</strong> — GPT-4o. Became the free-tier default; weekly actives grew toward 300 million by December.</p>
+
+    <p><strong>Aug 2024</strong> — Sutter, again. A ~200-freshman cohort stress-tested the rebuild and blazed through the conversational onboarding, reaching a character chat in under two minutes.</p>
+
+    <p>That was the moment capability stopped being the bottleneck. Students weren't just answering prompts; they were steering. "I don't like underwater welding — can I talk to some construction workers?" (going broader). "I like leading and technology — what roles in the Air Force combine both?" (going deeper). That dynamic, chat-driven exploration is still in the mobile app today, used in schools and at home across the country. Models were getting better, but our problem now became everything around it.</p>
+
+    <h2>Act II — Distribution</h2>
+
+    <p><strong>Sep 2024</strong> — o1-preview. Reasoning models reached consumers; ChatGPT climbed toward 400 million weekly actives by February 2025.</p>
+
+    <p>Once the conversation worked, the question became: how do we get it in front of students at scale? And here the wall wasn't technical. It was institutional.</p>
+
+    <p>One of our most important core values being inclusivity and providing access to all students, and knowing that students needed a caring adult to initiate and supervise career exploration and discovery, we turned to schools. To give CTE coordinators and educators a reason to run Hope, I built and launched an insights dashboard. Grouped by a launchId, teachers could see the topics and professions their students were actually exploring. Behind it I built an asynchronous processing pipeline on AWS — SQS queues feeding Lambdas — and used O*NET to normalize the model's free-text job titles into a standard taxonomy. It was the first time we'd reconciled non-deterministic LLM output against an external database. I also built a framework to evaluate chat quality, so we could answer a question that mattered more as we scaled: what does an impactful career conversation actually look like?</p>
+
+    <p>At Sutter, interest signals surfaced demand for pathways that didn't exist yet, sports medicine, theater, and one of them, a new performing-arts pathway, was backed by an $80K CTIG grant that the student data helped win. Charm used the same signals to build a network of 500+ community professionals for work-based learning and job shadows, roughly one for every student. The learnings from a simple career chat was now shaping course catalogs, grant applications, and board meetings.</p>
+
+    <p>We shipped on Android to widen access, but school sentiment toward mobile was souring, they didn't want phones in the classroom. IT friction to get a mobile app approved was punishing. We experimented with Android on Chromebooks; depending on district IT was its own tax. So we shipped the app on the web and served it straight from the browser: no install, no app store, no approval queue. That was the real unlock for the classroom.</p>
+
+    <p>Roughly a quarter of students were returning to the app outside of class, against an industry norm of 3 to 12%, and for power users, one of whom sent 560 messages in a single week.</p>
+
+    <p>Somewhere in here the strategy itself flipped. We had stopped being capability-bottlenecked and started being institution-bottlenecked. The path to every student didn't run around teachers, it ran through them. So we stopped optimizing purely for the student and started building for the classroom.</p>
+
+    <p><strong>Aug 2025</strong> — GPT-5 (unified system). Rolled out as the default for logged-in users; weekly actives passed 700 million by July and 800 million by December.</p>
+
+    <p>We enabled row-level security and anonymous authentication so a student no longer had to onboard at all to reach a Hope chat. This was a trade-off, we gave up some ability to identify users, but the payoff was a teacher sharing a single link and a whole class being in a conversation seconds later. Removing that last account-creation step removed the biggest adoption blocker we had. We focused hard on CTE teachers and programs, stood up a demo flow that became our front door, and the user base tripled, crossing 10,000 students in December 2025, a target we'd been chasing since early 2024, and reaching 13,000 by January 2026.</p>
+
+    <p>We also started packaging the experience. With ASA we built a career-fair-style quest inside EvolveMe, students chat with Hope, then one professional, then many, guided by their interests. It was our first quest: task-based, lightly gamified. The chat transcripts taught us something uncomfortable and useful, students have less meaningful conversations when there's an extrinsic reward attached to the chat. How you gamify matters enormously.</p>
+
+    <p>Additionally, we watched as some teachers picked Hope up and invented brilliant uses; others had no idea where to start. To support teachers, we formalized the concept of a Quest — student curiosity in the driver's seat — and worked with educator partners to build standards-aligned curriculum, lesson plans, and tutorials around it.</p>
+
+    <h2>Act III — Context</h2>
+
+    <p><strong>Sep 2024 – Feb 2026</strong> — the climb continues. 400 million weekly actives, then 700, then 900 million by February 2026.</p>
+
+    <p>By early 2026 we had a conversation that worked and a distribution model that worked. The frontier moved one more time. The next evolution: context. A generically excellent career chat is not the same as one that knows what CTE pathways this middle or high school actually offers, or what this district's curriculum expects.</p>
+
+    <p><strong>Jan 2026</strong> — Pilot quests on the teacher web app.</p>
+
+    <p>We launched a handful of pilot quests on a teacher-facing app. The team tripled in size, which slowed us down some before it sped us up, and we started prototyping quest experiences that weren't just chat. We started experimenting with formats that work for middle schoolers, not only high schoolers.</p>
+
+    <p>Utah districts turned us down because our privacy policy was out of date, so I worked with our lawyer to redraft it into something granular and honest about how the system actually handles data.</p>
+
+    <p><strong>Apr–May 2026</strong> — GPT-5.5 becomes the ChatGPT default. The app crosses a billion monthly users in June 2026 — the fastest in history.</p>
+
+    <p>With v2 of the classroom app we ran spring pilots. One district, Corona-Norco, our first district-level contract at $200K over two years, covering grades 5–8 and roughly 15,000 students, wanted us to help middle schoolers explore CTE pathways, which meant ingesting their curriculum data. So we built a RAG system and evolved quests past chat into experiences a younger student can actually navigate. We integrated with Clever. Hope has more tools and more local context now, and the quest experience keeps widening as we learn how to support students, teachers, schools, and districts at once.</p>
+
+    <p>The reach today is real but early: 20K students across 300+ schools in 12 states, 94% of them at one pilot reporting more clarity on how to prepare for their future. The target is 200,000 students next, and half a million within three years.</p>
+
+    <p><strong>Jun 2026</strong> — GPT-5.6 preview. Limited to trusted partners via API for now; not yet reflected in public adoption numbers.</p>
+
+    <h2>The student stays in the driver's seat</h2>
+
+    <p>One design decision I'd defend hardest, that Hope never become autonomous. Student input should always steer. We want a student's interests, curiosity, and goals to drive the experience, not a system that quietly drives for them. Internally we call it intentional friction: Hope is a collaborator, not a ghostwriter. Hope may pick up helper agents for specific tasks, but the wheel stays with the student.</p>
+
+    <p>If the original gap we uncovered was readiness, knowing how to make the best of an opportunity (a meeting with a real professional, in an interview, an internship, etc.) You don't close that gap by doing the thinking for them and handing over an answer. You close it by making the world more discoverable, by making the next step easier to find. Making a huge space of possible futures navigable, and helping a student take one real step toward one of them.</p>
+
+    <p>The models under the curve will keep getting better. Our job is to keep making sure the student is the one deciding where to go.</p>
+      `
+    },
   ];
 
   // ── Unified navigation: now/recently entries + archive articles, in one

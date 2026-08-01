@@ -22,7 +22,7 @@ Everyone who publishes their weird little side projects.
 Maintainers who respond to strangers issues <3. 
 
 /* SITE */
-Last update: 2026-07-02
+Last update: 2026-08-01
 Language: English
 Standards: HTML5, CSS3, vanilla JS
 Components: 0
