@@ -1,761 +1,936 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
-  <script>
-    (function () {
-      var saved = localStorage.getItem("theme");
-      var theme = saved === "light" || saved === "dark"
-        ? saved
-        : (window.matchMedia && matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
-      document.documentElement.setAttribute("data-theme", theme);
-    })();
-  </script>
+    <script>
+      (function () {
+        var saved = localStorage.getItem("theme");
+        var theme =
+          saved === "light" || saved === "dark"
+            ? saved
+            : window.matchMedia &&
+                matchMedia("(prefers-color-scheme: light)").matches
+              ? "light"
+              : "dark";
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
 
-  <title>{acacia}</title>
-  <meta name="description" content="Former teacher. Current software engineer. Have always been a builder.
-Building systems that empower humans to achieve their dreams.">
-  <meta name="author" content="Acacia Pappas">
-  <link rel="canonical" href="https://xacaciax.github.io/">
-  <meta id="theme-color-dark" name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
-  <meta id="theme-color-light" name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <title>{acacia}</title>
+    <meta
+      name="description"
+      content="Former teacher. Current software engineer. Have always been a builder.
+Building systems that empower humans to achieve their dreams." />
+    <meta name="author" content="Acacia Pappas" />
+    <link rel="canonical" href="https://xacaciax.github.io/" />
+    <meta
+      id="theme-color-dark"
+      name="theme-color"
+      content="#0a0a0a"
+      media="(prefers-color-scheme: dark)" />
+    <meta
+      id="theme-color-light"
+      name="theme-color"
+      content="#ffffff"
+      media="(prefers-color-scheme: light)" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/brand/favicon-16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/brand/apple-touch-icon.png">
-  <link rel="manifest" href="site.webmanifest">
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/brand/favicon-32.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/brand/favicon-16.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/brand/apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
 
-  <meta property="og:type" content="profile">
-  <meta property="og:title" content="Acacia Pappas">
-  <meta property="og:description" content="Former teacher. Current software engineer. Have always been a builder. Building systems that empower humans to achieve their dreams.">
-  <meta property="og:url" content="https://xacaciax.github.io/">
-  <meta property="og:image" content="https://xacaciax.github.io/assets/brand/og-image.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="profile:first_name" content="Acacia">
-  <meta property="profile:last_name" content="Pappas">
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="Acacia Pappas" />
+    <meta
+      property="og:description"
+      content="Former teacher. Current software engineer. Have always been a builder. Building systems that empower humans to achieve their dreams." />
+    <meta property="og:url" content="https://xacaciax.github.io/" />
+    <meta
+      property="og:image"
+      content="https://xacaciax.github.io/assets/brand/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="profile:first_name" content="Acacia" />
+    <meta property="profile:last_name" content="Pappas" />
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Acacia Pappas">
-  <meta name="twitter:description" content="Former teacher. Current software engineer. Have always been a builder. Building systems that empower humans to achieve their dreams.">
-  <meta name="twitter:image" content="https://xacaciax.github.io/assets/brand/og-image.png">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Acacia Pappas" />
+    <meta
+      name="twitter:description"
+      content="Former teacher. Current software engineer. Have always been a builder. Building systems that empower humans to achieve their dreams." />
+    <meta
+      name="twitter:image"
+      content="https://xacaciax.github.io/assets/brand/og-image.png" />
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfilePage",
-    "mainEntity": {
-      "@type": "Person",
-      "name": "Acacia Pappas",
-      "jobTitle": "Software Engineer",
-      "url": "https://xacaciax.github.io/",
-      "sameAs": [
-        "https://github.com/xacaciax",
-        "https://www.linkedin.com/in/acaciapappas/",
-        "https://x.com/xacaciax_"
-      ],
-      "knowsAbout": [
-        "Flutter",
-        "Dart",
-        "TypeScript",
-        "Node.js",
-        "PostgreSQL",
-        "Supabase",
-        "AWS",
-        "OpenAI",
-        "AI Agents",
-        "System Design",
-        "Mobile Architecture",
-        "API Design",
-        "Developer Experience",
-        "EdTech",
-        "Product Development",
-        "Technical Leadership",
-        "Large Language Models",
-        "Non-Deterministic Data",
-        "Data Validation",
-        "AI Ethics"
-      ]
-    }
-  }
-  </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "mainEntity": {
+          "@type": "Person",
+          "name": "Acacia Pappas",
+          "jobTitle": "Software Engineer",
+          "url": "https://xacaciax.github.io/",
+          "sameAs": [
+            "https://github.com/xacaciax",
+            "https://www.linkedin.com/in/acaciapappas/",
+            "https://x.com/xacaciax_"
+          ],
+          "knowsAbout": [
+            "Flutter",
+            "Dart",
+            "TypeScript",
+            "Node.js",
+            "PostgreSQL",
+            "Supabase",
+            "AWS",
+            "OpenAI",
+            "AI Agents",
+            "System Design",
+            "Mobile Architecture",
+            "API Design",
+            "Developer Experience",
+            "EdTech",
+            "Product Development",
+            "Technical Leadership",
+            "Large Language Models",
+            "Non-Deterministic Data",
+            "Data Validation",
+            "AI Ethics"
+          ]
+        }
+      }
+    </script>
 
-  <link rel="author" href="humans.txt">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; }
+    <link rel="author" href="humans.txt" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+      rel="stylesheet" />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
 
-    a, button { -webkit-tap-highlight-color: transparent; }
+      a,
+      button {
+        -webkit-tap-highlight-color: transparent;
+      }
 
-    :root {
-      color-scheme: dark;
-      --bg:        #0a0a0a;
-      --bg-raised: #141414;
-      --border:    #262626;
-      --border-hi: #666666;
-      --text:      #f2f2f2;
-      --text-2:    #cccccc;
-      --text-3:    #999999;
-      --text-4:    #808080;
-      --deep-orange-100: #ff573c;
-      --deep-orange-300: #ff653f;
-      --deep-orange-500: #ff6f43;
-      --deep-orange-600: #ff7946;
-      --deep-orange-700: #ff8248;
-      --deep-orange-500-hover: #e0521f;
-      --deep-orange-500-active: #b83f18;
-      --link:      #b3b3b3;
-      --link-hi:   #f2f2f2;
-      --font-sans: "Inter", -apple-system, "Helvetica Neue", Arial, sans-serif;
-      --font-mono: "JetBrains Mono", "Courier New", monospace;
-    }
+      :root {
+        color-scheme: dark;
+        --bg: #0a0a0a;
+        --bg-raised: #141414;
+        --border: #262626;
+        --border-hi: #666666;
+        --text: #f2f2f2;
+        --text-2: #cccccc;
+        --text-3: #999999;
+        --text-4: #808080;
+        --deep-orange-100: #ff573c;
+        --deep-orange-300: #ff653f;
+        --deep-orange-500: #ff6f43;
+        --deep-orange-600: #ff7946;
+        --deep-orange-700: #ff8248;
+        --deep-orange-500-hover: #e0521f;
+        --deep-orange-500-active: #b83f18;
+        --link: #b3b3b3;
+        --link-hi: #f2f2f2;
+        --font-sans:
+          "Inter", -apple-system, "Helvetica Neue", Arial, sans-serif;
+        --font-mono: "JetBrains Mono", "Courier New", monospace;
+      }
 
-    :root[data-theme="light"] {
-      color-scheme: light;
-      --bg:        #ffffff;
-      --bg-raised: #f2f2f2;
-      --border:    #e0e0e0;
-      --border-hi: #808080;
-      --text:      #0a0a0a;
-      --text-2:    #333333;
-      --text-3:    #595959;
-      --text-4:    #666666;
-      --link:      #595959;
-      --link-hi:   #0a0a0a;
-    }
+      :root[data-theme="light"] {
+        color-scheme: light;
+        --bg: #ffffff;
+        --bg-raised: #f2f2f2;
+        --border: #e0e0e0;
+        --border-hi: #808080;
+        --text: #0a0a0a;
+        --text-2: #333333;
+        --text-3: #595959;
+        --text-4: #666666;
+        --link: #595959;
+        --link-hi: #0a0a0a;
+      }
 
-    @media (prefers-reduced-motion: no-preference) {
-      body, #theme-toggle-icon {
-        transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+      @media (prefers-reduced-motion: no-preference) {
+        body,
+        #theme-toggle-icon {
+          transition:
+            background-color 0.15s ease,
+            color 0.15s ease,
+            border-color 0.15s ease;
+        }
+
+        #theme-toggle {
+          transition: opacity 0.15s ease;
+        }
+
+        #entry-nav button {
+          transition:
+            transform 0.1s ease,
+            border-color 0.15s ease,
+            color 0.15s ease;
+        }
+
+        .side-nav-item,
+        .entry-link,
+        .link-row a,
+        .article-external-link a,
+        .article-body a,
+        .article-footer button,
+        #footer a {
+          transition: color 0.15s ease;
+        }
+      }
+
+      a:focus-visible,
+      button:focus-visible {
+        outline: 2px solid var(--border-hi);
+        outline-offset: 2px;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: var(--bg);
+        color: var(--text);
+        font-family: var(--font-sans);
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 9999;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+        opacity: 0.5;
+      }
+
+      #index-view {
+        max-width: 860px;
+        margin: 0 auto;
+        padding-top: 48px;
+        padding-right: max(24px, env(safe-area-inset-right));
+        padding-bottom: max(80px, env(safe-area-inset-bottom));
+        padding-left: max(24px, env(safe-area-inset-left));
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 180px;
+        grid-template-rows: auto auto auto auto;
+        gap: 0 44px;
+      }
+
+      .article-eyebrow {
+        font-family: var(--font-mono);
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--text-4);
+        margin-bottom: 10px;
+      }
+
+      .article-title {
+        font-size: 22px;
+        font-weight: bold;
+        color: var(--text);
+        margin: 0 0 6px;
+        line-height: 1.3;
+        letter-spacing: -0.01em;
+      }
+
+      .article-byline {
+        font-size: 16px;
+        line-height: 1.4;
+        color: var(--text-3);
+        margin-bottom: 8px;
+      }
+
+      .article-meta {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--text-4);
+        margin-bottom: 32px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .article-body {
+        color: var(--text-2);
+        font-size: 17px;
+        line-height: 1.6;
+      }
+
+      .article-body h2 {
+        font-size: 11px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--text-3);
+        margin: 40px 0 14px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .article-body p {
+        margin: 0 0 18px;
+      }
+
+      .article-body p:last-child {
+        margin-bottom: 0;
+      }
+
+      .article-body a {
+        color: var(--link);
+        text-decoration: none;
+        border-bottom: 1px solid var(--border-hi);
+      }
+
+      .article-body a:hover,
+      .article-body a:active {
+        color: var(--link-hi);
+      }
+
+      .article-summary {
+        font-style: italic;
+        color: var(--text-3);
+        border-left: 2px solid var(--border-hi);
+        padding: 2px 0 2px 18px;
+        margin: 0 0 28px;
+      }
+
+      .article-body blockquote {
+        border-left: 2px solid var(--border-hi);
+        margin: 24px 0;
+        padding: 2px 0 2px 18px;
+        color: var(--text-3);
+        font-style: italic;
+      }
+
+      .article-body ul {
+        margin: 0 0 18px;
+        padding-left: 22px;
+      }
+
+      .article-body li {
+        margin-bottom: 8px;
+      }
+
+      .article-body li:last-child {
+        margin-bottom: 0;
+      }
+
+      .article-body img {
+        display: block;
+        width: 100%;
+        border-radius: 2px;
+        margin: 24px 0;
+      }
+
+      .article-image {
+        display: block;
+        width: 100%;
+        border-radius: 2px;
+        margin-bottom: 28px;
+      }
+
+      .stat-line {
+        background: var(--bg-raised);
+        border: 1px solid var(--border);
+        padding: 10px 16px;
+        margin: 24px 0;
+        font-size: 12px;
+        color: var(--text-3);
+        display: flex;
+        gap: 32px;
+        flex-wrap: wrap;
+      }
+
+      .stat-line span {
+        white-space: nowrap;
+      }
+      .stat-line strong {
+        color: var(--text);
+        font-weight: bold;
+        font-size: 15px;
+      }
+
+      .article-footer {
+        font-family: var(--font-mono);
+        border-top: 1px solid var(--border);
+        padding-top: 12px;
+        margin-top: 48px;
+        font-size: 11px;
+        color: var(--text-4);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .article-footer button {
+        background: none;
+        border: none;
+        color: var(--text-4);
+        font-family: inherit;
+        font-size: 11px;
+        cursor: pointer;
+        padding: 0;
+      }
+
+      .article-footer button:hover,
+      .article-footer button:active {
+        color: var(--text-3);
+      }
+
+      #header {
+        grid-column: 1 / -1;
+        margin-bottom: 32px;
+        padding-bottom: 14px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      #brand-mark {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      #brand-icon {
+        display: block;
+        border-radius: 50%;
+      }
+
+      #brand-name {
+        font-family: var(--font-mono);
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--text);
+        letter-spacing: -0.01em;
+      }
+
+      #header-subtitle {
+        font-size: 16px;
+        color: var(--text-3);
+        margin-top: 6px;
       }
 
       #theme-toggle {
-        transition: opacity 0.15s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 12px;
+        margin: -12px;
+        opacity: 0.7;
       }
 
-      #entry-nav button {
-        transition: transform 0.1s ease, border-color 0.15s ease, color 0.15s ease;
+      #theme-toggle:hover,
+      #theme-toggle:active {
+        opacity: 1;
       }
 
-      .side-nav-item,
-      .entry-link,
-      .link-row a,
-      .article-external-link a,
-      .article-body a,
-      .article-footer button,
-      #footer a {
-        transition: color 0.15s ease;
-      }
-    }
-
-    a:focus-visible,
-    button:focus-visible {
-      outline: 2px solid var(--border-hi);
-      outline-offset: 2px;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: var(--font-sans);
-      font-size: 13px;
-      line-height: 1.6;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 9999;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-      opacity: 0.5;
-    }
-
-    #index-view {
-      max-width: 860px;
-      margin: 0 auto;
-      padding-top: 48px;
-      padding-right: max(24px, env(safe-area-inset-right));
-      padding-bottom: max(80px, env(safe-area-inset-bottom));
-      padding-left: max(24px, env(safe-area-inset-left));
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 180px;
-      grid-template-rows: auto auto auto auto;
-      gap: 0 44px;
-    }
-
-    .article-eyebrow {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--text-4);
-      margin-bottom: 10px;
-    }
-
-    .article-title {
-      font-size: 22px;
-      font-weight: bold;
-      color: var(--text);
-      margin: 0 0 6px;
-      line-height: 1.3;
-      letter-spacing: -0.01em;
-    }
-
-    .article-byline {
-      font-size: 16px;
-      line-height: 1.4;
-      color: var(--text-3);
-      margin-bottom: 8px;
-    }
-
-    .article-meta {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--text-4);
-      margin-bottom: 32px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .article-body {
-      color: var(--text-2);
-      font-size: 17px;
-      line-height: 1.6;
-    }
-
-    .article-body h2 {
-      font-size: 11px;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--text-3);
-      margin: 40px 0 14px;
-      padding-bottom: 6px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .article-body p {
-      margin: 0 0 18px;
-    }
-
-    .article-body p:last-child { margin-bottom: 0; }
-
-    .article-body a {
-      color: var(--link);
-      text-decoration: none;
-      border-bottom: 1px solid var(--border-hi);
-    }
-
-    .article-body a:hover, .article-body a:active { color: var(--link-hi); }
-
-    .article-summary {
-      font-style: italic;
-      color: var(--text-3);
-      border-left: 2px solid var(--border-hi);
-      padding: 2px 0 2px 18px;
-      margin: 0 0 28px;
-    }
-
-    .article-body blockquote {
-      border-left: 2px solid var(--border-hi);
-      margin: 24px 0;
-      padding: 2px 0 2px 18px;
-      color: var(--text-3);
-      font-style: italic;
-    }
-
-    .article-body ul {
-      margin: 0 0 18px;
-      padding-left: 22px;
-    }
-
-    .article-body li {
-      margin-bottom: 8px;
-    }
-
-    .article-body li:last-child { margin-bottom: 0; }
-
-    .article-body img {
-      display: block;
-      width: 100%;
-      border-radius: 2px;
-      margin: 24px 0;
-    }
-
-    .article-image {
-      display: block;
-      width: 100%;
-      border-radius: 2px;
-      margin-bottom: 28px;
-    }
-
-    .stat-line {
-      background: var(--bg-raised);
-      border: 1px solid var(--border);
-      padding: 10px 16px;
-      margin: 24px 0;
-      font-size: 12px;
-      color: var(--text-3);
-      display: flex;
-      gap: 32px;
-      flex-wrap: wrap;
-    }
-
-    .stat-line span { white-space: nowrap; }
-    .stat-line strong { color: var(--text); font-weight: bold; font-size: 15px; }
-
-    .article-footer {
-      font-family: var(--font-mono);
-      border-top: 1px solid var(--border);
-      padding-top: 12px;
-      margin-top: 48px;
-      font-size: 11px;
-      color: var(--text-4);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .article-footer button {
-      background: none;
-      border: none;
-      color: var(--text-4);
-      font-family: inherit;
-      font-size: 11px;
-      cursor: pointer;
-      padding: 0;
-    }
-
-    .article-footer button:hover, .article-footer button:active { color: var(--text-3); }
-
-    #header {
-      grid-column: 1 / -1;
-      margin-bottom: 32px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    #brand-mark {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    #brand-icon {
-      display: block;
-      border-radius: 50%;
-    }
-
-    #brand-name {
-      font-family: var(--font-mono);
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--text);
-      letter-spacing: -0.01em;
-    }
-
-    #header-subtitle {
-      font-size: 16px;
-      color: var(--text-3);
-      margin-top: 6px;
-    }
-
-    #theme-toggle {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 12px;
-      margin: -12px;
-      opacity: 0.7;
-    }
-
-    #theme-toggle:hover, #theme-toggle:active { opacity: 1; }
-
-    #theme-toggle-icon {
-      width: 19.5px;
-      height: 19.5px;
-      display: block;
-    }
-
-    #header-subtitle a { color: var(--text-3); text-decoration: none; }
-    #header-subtitle a:hover { color: var(--text); }
-
-    .link-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13px;
-      color: var(--text-4);
-    }
-
-    .link-row a { color: var(--text-3); text-decoration: none; }
-    .link-row a:hover, .link-row a:active { color: var(--text); }
-
-    #sidebar { grid-column: 2; grid-row: 2; min-width: 0; }
-
-    .side-label {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-4);
-      margin-bottom: 7px;
-    }
-
-    #content { grid-column: 1; grid-row: 2; min-width: 0; }
-
-    #about {
-      grid-column: 1 / -1;
-      border-top: 1px solid var(--border);
-      padding-top: 20px;
-      margin-top: 20px;
-      font-size: 16px;
-      color: var(--text-3);
-      line-height: 1.6;
-    }
-
-    #about a { color: var(--text-3); text-decoration: none; }
-    #about a:hover { color: var(--text); }
-    #about .link-row { margin-top: 14px; }
-
-    #entry-nav {
-      font-family: var(--font-mono);
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 24px;
-    }
-
-    #entry-nav button {
-      background: none;
-      border: 1px solid var(--border);
-      color: var(--link);
-      font-family: inherit;
-      font-size: 13px;
-      padding: 3px 10px;
-      cursor: pointer;
-      border-radius: 999px;
-    }
-
-    #entry-nav button:hover:not(:disabled),
-    #entry-nav button:active:not(:disabled) {
-      border-color: var(--border-hi);
-      color: var(--link-hi);
-    }
-
-    #entry-nav button:active:not(:disabled) { transform: scale(0.96); }
-
-    #entry-nav button:disabled {
-      opacity: 0.25;
-      cursor: default;
-    }
-
-    .entry-question {
-      font-size: 21px;
-      font-weight: bold;
-      color: var(--text);
-      line-height: 1.35;
-      margin: 0 0 18px;
-      letter-spacing: -0.01em;
-    }
-
-    .coming-soon {
-      font-size: 10px;
-      font-weight: normal;
-      color: var(--text-4);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-right: 4px;
-    }
-
-    .entry-context {
-      font-size: 16px;
-      color: var(--text-2);
-      line-height: 1.6;
-      margin: 0 0 18px;
-    }
-
-    .entry-context code {
-      font-family: var(--font-mono);
-      color: var(--text-2);
-      background: var(--bg-raised);
-      border: 1px solid var(--border);
-      padding: 0 4px;
-      border-radius: 2px;
-      font-size: 11px;
-    }
-
-    .entry-meta {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--text-4);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .entry-link {
-      display: inline-block;
-      margin-top: 16px;
-      font-size: 12px;
-      color: var(--link);
-      text-decoration: none;
-      background: none;
-      border: none;
-      border-bottom: 1px solid var(--border-hi);
-      font-family: inherit;
-      cursor: pointer;
-      padding: 0;
-    }
-
-    .entry-link:hover, .entry-link:active { color: var(--link-hi); border-bottom-color: var(--link); }
-
-    .article-coming-soon {
-      color: var(--text-4);
-      font-size: 12px;
-      font-style: italic;
-      margin-top: 28px;
-    }
-
-    .article-external-link {
-      margin-top: 36px;
-      padding-top: 24px;
-      border-top: 1px solid var(--border);
-      font-size: 13px;
-    }
-
-    .article-external-link a {
-      color: var(--link);
-      text-decoration: none;
-      border-bottom: 1px solid var(--border-hi);
-    }
-
-    .article-external-link a:hover, .article-external-link a:active { color: var(--link-hi); }
-
-    .q-tag {
-      font-family: var(--font-mono);
-      background: var(--bg-raised);
-      border: 1px solid var(--border);
-      color: var(--text-4);
-      font-size: 10px;
-      padding: 1px 8px;
-      border-radius: 999px;
-    }
-
-    .dot { color: var(--border-hi); }
-
-    .side-nav-section { margin-bottom: 20px; }
-
-    .side-nav-item {
-      display: block;
-      font-size: 13px;
-      color: var(--link);
-      text-decoration: none;
-      line-height: 1.45;
-      margin-bottom: 7px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 0;
-      font-family: inherit;
-      text-align: left;
-      width: 100%;
-    }
-
-    .side-nav-item:hover, .side-nav-item:active { color: var(--link-hi); }
-    .side-nav-item.active { color: var(--text); }
-
-    .side-nav-date {
-      font-family: var(--font-mono);
-      display: block;
-      font-size: 11px;
-      color: var(--text-4);
-      margin-bottom: 1px;
-    }
-
-    .side-nav-title {
-      display: block;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    #footer {
-      grid-column: 1 / -1;
-      border-top: 1px solid var(--border);
-      padding-top: 12px;
-      margin-top: 14px;
-      font-size: 11px;
-      color: var(--text-4);
-      display: flex;
-      justify-content: space-between;
-    }
-
-    #footer a { color: var(--text-4); text-decoration: none; }
-    #footer a:hover, #footer a:active { color: var(--text-3); }
-
-    @media (max-width: 600px) {
-      #index-view {
-        grid-template-columns: minmax(0, 1fr);
-        grid-template-rows: auto;
-        padding-top: 28px;
-        padding-right: max(18px, env(safe-area-inset-right));
-        padding-bottom: max(60px, env(safe-area-inset-bottom));
-        padding-left: max(18px, env(safe-area-inset-left));
-        gap: 0;
+      #theme-toggle-icon {
+        width: 19.5px;
+        height: 19.5px;
+        display: block;
       }
 
-      #header { margin-bottom: 24px; flex-direction: column; align-items: flex-start; gap: 12px; }
+      #header-subtitle a {
+        color: var(--text-3);
+        text-decoration: none;
+      }
+      #header-subtitle a:hover {
+        color: var(--text);
+      }
 
       .link-row {
-        gap: 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
         font-size: 13px;
+        color: var(--text-4);
       }
 
-      .link-row .dot { display: none; }
-
       .link-row a {
-        padding: 10px 0;
+        color: var(--text-3);
+        text-decoration: none;
+      }
+      .link-row a:hover,
+      .link-row a:active {
+        color: var(--text);
+      }
+
+      #sidebar {
+        grid-column: 2;
+        grid-row: 2;
+        min-width: 0;
+      }
+
+      .side-label {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--text-4);
+        margin-bottom: 7px;
       }
 
       #content {
         grid-column: 1;
-        grid-row: auto;
-      }
-
-      #sidebar {
-        grid-column: 1;
-        grid-row: auto;
-        margin-top: 40px;
-        padding-top: 20px;
-        border-top: 1px solid var(--border);
-      }
-
-      .side-nav-section { margin-bottom: 16px; }
-
-      .side-nav-item {
-        padding: 10px 0;
-        margin-bottom: 0;
+        grid-row: 2;
+        min-width: 0;
       }
 
       #about {
-        margin-top: 32px;
+        grid-column: 1 / -1;
+        border-top: 1px solid var(--border);
         padding-top: 20px;
+        margin-top: 20px;
+        font-size: 16px;
+        color: var(--text-3);
+        line-height: 1.6;
+      }
+
+      #about a {
+        color: var(--text-3);
+        text-decoration: none;
+      }
+      #about a:hover {
+        color: var(--text);
+      }
+      #about .link-row {
+        margin-top: 14px;
+      }
+
+      #entry-nav {
+        font-family: var(--font-mono);
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 24px;
       }
 
       #entry-nav button {
-        padding: 13px 18px;
+        background: none;
+        border: 1px solid var(--border);
+        color: var(--link);
+        font-family: inherit;
+        font-size: 13px;
+        padding: 3px 10px;
+        cursor: pointer;
+        border-radius: 999px;
       }
 
-      .entry-question { font-size: 19px; }
+      #entry-nav button:hover:not(:disabled),
+      #entry-nav button:active:not(:disabled) {
+        border-color: var(--border-hi);
+        color: var(--link-hi);
+      }
+
+      #entry-nav button:active:not(:disabled) {
+        transform: scale(0.96);
+      }
+
+      #entry-nav button:disabled {
+        opacity: 0.25;
+        cursor: default;
+      }
+
+      .entry-question {
+        font-size: 21px;
+        font-weight: bold;
+        color: var(--text);
+        line-height: 1.35;
+        margin: 0 0 18px;
+        letter-spacing: -0.01em;
+      }
+
+      .coming-soon {
+        font-size: 10px;
+        font-weight: normal;
+        color: var(--text-4);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-right: 4px;
+      }
+
+      .entry-context {
+        font-size: 16px;
+        color: var(--text-2);
+        line-height: 1.6;
+        margin: 0 0 18px;
+      }
+
+      .entry-context code {
+        font-family: var(--font-mono);
+        color: var(--text-2);
+        background: var(--bg-raised);
+        border: 1px solid var(--border);
+        padding: 0 4px;
+        border-radius: 2px;
+        font-size: 11px;
+      }
+
+      .entry-meta {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--text-4);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
 
       .entry-link {
-        padding: 12px 0;
+        display: inline-block;
+        margin-top: 16px;
+        font-size: 12px;
+        color: var(--link);
+        text-decoration: none;
+        background: none;
+        border: none;
+        border-bottom: 1px solid var(--border-hi);
+        font-family: inherit;
+        cursor: pointer;
+        padding: 0;
+      }
+
+      .entry-link:hover,
+      .entry-link:active {
+        color: var(--link-hi);
+        border-bottom-color: var(--link);
+      }
+
+      .article-coming-soon {
+        color: var(--text-4);
+        font-size: 12px;
+        font-style: italic;
+        margin-top: 28px;
+      }
+
+      .article-external-link {
+        margin-top: 36px;
+        padding-top: 24px;
+        border-top: 1px solid var(--border);
         font-size: 13px;
       }
 
-      .article-title { font-size: 20px; }
+      .article-external-link a {
+        color: var(--link);
+        text-decoration: none;
+        border-bottom: 1px solid var(--border-hi);
+      }
 
-      .article-footer button {
-        padding: 12px 0;
+      .article-external-link a:hover,
+      .article-external-link a:active {
+        color: var(--link-hi);
+      }
+
+      .q-tag {
+        font-family: var(--font-mono);
+        background: var(--bg-raised);
+        border: 1px solid var(--border);
+        color: var(--text-4);
+        font-size: 10px;
+        padding: 1px 8px;
+        border-radius: 999px;
+      }
+
+      .dot {
+        color: var(--border-hi);
+      }
+
+      .side-nav-section {
+        margin-bottom: 20px;
+      }
+
+      .side-nav-item {
+        display: block;
         font-size: 13px;
+        color: var(--link);
+        text-decoration: none;
+        line-height: 1.45;
+        margin-bottom: 7px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 0;
+        font-family: inherit;
+        text-align: left;
+        width: 100%;
+      }
+
+      .side-nav-item:hover,
+      .side-nav-item:active {
+        color: var(--link-hi);
+      }
+      .side-nav-item.active {
+        color: var(--text);
+      }
+
+      .side-nav-date {
+        font-family: var(--font-mono);
+        display: block;
+        font-size: 11px;
+        color: var(--text-4);
+        margin-bottom: 1px;
+      }
+
+      .side-nav-title {
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      #footer {
+        grid-column: 1 / -1;
+        border-top: 1px solid var(--border);
+        padding-top: 12px;
+        margin-top: 14px;
+        font-size: 11px;
+        color: var(--text-4);
+        display: flex;
+        justify-content: space-between;
       }
 
       #footer a {
-        padding: 8px 0;
+        color: var(--text-4);
+        text-decoration: none;
+      }
+      #footer a:hover,
+      #footer a:active {
+        color: var(--text-3);
       }
 
-      .stat-line { gap: 16px; }
-    }
-  </style>
-</head>
-<body>
+      @media (max-width: 600px) {
+        #index-view {
+          grid-template-columns: minmax(0, 1fr);
+          grid-template-rows: auto;
+          padding-top: 28px;
+          padding-right: max(18px, env(safe-area-inset-right));
+          padding-bottom: max(60px, env(safe-area-inset-bottom));
+          padding-left: max(18px, env(safe-area-inset-left));
+          gap: 0;
+        }
 
-<div id="index-view">
+        #header {
+          margin-bottom: 24px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 12px;
+        }
 
-  <div id="header">
-    <div>
-      <div id="brand-mark">
-        <img id="brand-icon" src="assets/brand/header-mark.png" alt="" width="35" height="35">
-        <span id="brand-name">{acacia}</span>
+        .link-row {
+          gap: 16px;
+          font-size: 13px;
+        }
+
+        .link-row .dot {
+          display: none;
+        }
+
+        .link-row a {
+          padding: 10px 0;
+        }
+
+        #content {
+          grid-column: 1;
+          grid-row: auto;
+        }
+
+        #sidebar {
+          grid-column: 1;
+          grid-row: auto;
+          margin-top: 40px;
+          padding-top: 20px;
+          border-top: 1px solid var(--border);
+        }
+
+        .side-nav-section {
+          margin-bottom: 16px;
+        }
+
+        .side-nav-item {
+          padding: 10px 0;
+          margin-bottom: 0;
+        }
+
+        #about {
+          margin-top: 32px;
+          padding-top: 20px;
+        }
+
+        #entry-nav button {
+          padding: 13px 18px;
+        }
+
+        .entry-question {
+          font-size: 19px;
+        }
+
+        .entry-link {
+          padding: 12px 0;
+          font-size: 13px;
+        }
+
+        .article-title {
+          font-size: 20px;
+        }
+
+        .article-footer button {
+          padding: 12px 0;
+          font-size: 13px;
+        }
+
+        #footer a {
+          padding: 8px 0;
+        }
+
+        .stat-line {
+          gap: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="index-view">
+      <div id="header">
+        <div>
+          <div id="brand-mark">
+            <img
+              id="brand-icon"
+              src="assets/brand/header-mark.png"
+              alt=""
+              width="35"
+              height="35" />
+            <span id="brand-name">{acacia}</span>
+          </div>
+          <div id="header-subtitle">Essays, articles, and experiments.</div>
+        </div>
+        <nav id="header-links" class="link-row">
+          <button
+            id="theme-toggle"
+            type="button"
+            aria-label="Switch to light mode"
+            aria-pressed="false">
+            <img
+              id="theme-toggle-icon"
+              src="assets/brand/theme-icon-cream.png"
+              alt="" />
+          </button>
+        </nav>
       </div>
-      <div id="header-subtitle">Essays, articles, and experiments.</div>
+
+      <main id="content">
+        <div id="entry-nav">
+          <button
+            id="nav-prev"
+            onclick="prevEntry()"
+            aria-label="Previous entry">
+            &larr; prev
+          </button>
+          <button id="nav-next" onclick="nextEntry()" aria-label="Next entry">
+            next &rarr;
+          </button>
+        </div>
+        <article id="entry-display"></article>
+      </main>
+
+      <aside id="sidebar">
+        <nav id="sidebar-nav" aria-label="All entries"></nav>
+      </aside>
+
+      <div id="about">
+        <p>
+          Hi, I'm Acacia Pappas. I am a human. I like building and creating. My
+          preferred toolkit: words, languages, computers, story, pencil and
+          paper, books and blogs and other platforms optimized for empowering
+          humanity by sharing information, and more recently any number of large
+          language models. I am currently serving as interim CTO at
+          <a
+            href="https://www.hopestreetgroup.org/"
+            target="_blank"
+            rel="noopener"
+            >Hope Street Group</a
+          >.
+        </p>
+        <nav class="link-row" aria-label="Social links">
+          <a href="https://github.com/xacaciax" target="_blank">github</a>
+          <span class="dot">&middot;</span>
+          <a href="https://www.linkedin.com/in/acaciapappas/" target="_blank"
+            >linkedin</a
+          >
+          <span class="dot">&middot;</span>
+          <a href="https://x.com/xacaciax_" target="_blank">twitter</a>
+        </nav>
+      </div>
+
+      <div id="footer">
+        <span
+          >© 2026 Acacia Pappas. All rights reserved. &mdash;
+          <span id="updated"></span
+        ></span>
+        <a href="humans.txt">humans.txt</a>
+      </div>
     </div>
-    <nav id="header-links" class="link-row">
-      <button id="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="false">
-        <img id="theme-toggle-icon" src="assets/brand/theme-icon-cream.png" alt="">
-      </button>
-    </nav>
-  </div>
 
-  <main id="content">
-    <div id="entry-nav">
-      <button id="nav-prev" onclick="prevEntry()" aria-label="Previous entry">&larr; prev</button>
-      <button id="nav-next" onclick="nextEntry()" aria-label="Next entry">next &rarr;</button>
-    </div>
-    <article id="entry-display"></article>
-  </main>
+    <script src="drafts.js" onerror="window.DRAFTS = []"></script>
+    <script>
+      // const ENTRIES = window.DRAFTS || [];
+      const ENTRIES = [];
 
-  <aside id="sidebar">
-    <nav id="sidebar-nav" aria-label="All entries"></nav>
-  </aside>
-
-  <div id="about">
-    <p>Hi, I'm Acacia Pappas. I am a human. I like building and creating. My preferred toolkit: words, languages, computers, story, pencil and paper, books and blogs and other platforms optimized for empowering humanity by sharing information, and more recently any number of large language models. I am currently serving as interim CTO at <a href="https://www.hopestreetgroup.org/" target="_blank" rel="noopener">Hope Street Group</a>.</p>
-    <nav class="link-row" aria-label="Social links">
-      <a href="https://github.com/xacaciax" target="_blank">github</a>
-      <span class="dot">&middot;</span>
-      <a href="https://www.linkedin.com/in/acaciapappas/" target="_blank">linkedin</a>
-      <span class="dot">&middot;</span>
-      <a href="https://x.com/xacaciax_" target="_blank">twitter</a>
-    </nav>
-  </div>
-
-  <div id="footer">
-    <span>© 2026 Acacia Pappas. All rights reserved. &mdash; <span id="updated"></span></span>
-    <a href="humans.txt">humans.txt</a>
-  </div>
-
-
-</div>
-
-
-<script src="drafts.js" onerror="window.DRAFTS=[]"></script>
-<script>
-  // const ENTRIES = window.DRAFTS || [];
-  const ENTRIES = []
-
-  const ARTICLES = [
-    {
-      id:       "educator-to-engineer",
-      title:    "From Educator to Engineer: How the I/Own It Scholarship Launched my Career in Tech",
-      subtitle: "A blog post I wrote to provide insight into my transition into tech.",
-      date:     "August 2019",
-      dateISO:  "2019-08-01",
-      section:  "archive",
-      tags:     ["career", "diversity", "bootcamp", "Hack Reactor", "Optimizely"],
-      image:    null,
-      body: `
+      const ARTICLES = [
+        {
+          id: "educator-to-engineer",
+          title:
+            "From Educator to Engineer: How the I/Own It Scholarship Launched my Career in Tech",
+          subtitle:
+            "A blog post I wrote to provide insight into my transition into tech.",
+          date: "August 2019",
+          dateISO: "2019-08-01",
+          section: "archive",
+          tags: [
+            "career",
+            "diversity",
+            "bootcamp",
+            "Hack Reactor",
+            "Optimizely",
+          ],
+          image: null,
+          body: `
     <p class="article-summary">This article was written for Optimizely and published on their blog in August 2019. My aim was to provide insight into what the transition felt like, to demonstrate that although it can be challenging, it is also very doable. Optimizely's aim was to celebrate their DEI intiatives, specifically the I/Own It Scholarship.</p>
 
     <p>Just over a year ago, I closed the door to my classroom for the last time as I wrapped up my sixth and final year as a teacher at an alternative high school in Philadelphia. I was about to take a leap from education to tech, from teacher to software engineer. I didn't know then that I'd be starting as a Software Engineer at Optimizely just one year later &mdash; because I'd win a scholarship that would catapult me into the technology industry in San Francisco.</p>
@@ -816,18 +991,26 @@ Building systems that empower humans to achieve their dreams.">
     <p>I still think of my students every day. One lesson I carry from teaching is that everyone benefits when you bring your whole self to work. At El Centro De Estudiantes High School in North Philadelphia, integrating who I was into my day-to-day instruction made my students more responsive and open. Co-planning with colleagues became less of a task and more like doing a project with friends.</p>
 
     <p>This is why I believe diversity and inclusion initiatives like I/Own It are important. The demographic breakdown of the tech industry reflects greater and more systemic issues of inequality in our society. This program is one effective and replicable way toward positive change in this industry.</p>
-      `
-    },
-    {
-      id:       "flutter-non-deterministic-data",
-      title:    "Building Reliable Applications in the New Age of Non-Deterministic Data",
-      subtitle: "A talk I gave at Fluttercon EU 2024.",
-      date:     "July 2024",
-      dateISO:  "2024-07-03",
-      section:  "archive",
-      tags:     ["Flutter", "LLM", "AI", "mobile", "Fluttercon", "data validation"],
-      image:    null,
-      body: `
+      `,
+        },
+        {
+          id: "flutter-non-deterministic-data",
+          title:
+            "Building Reliable Applications in the New Age of Non-Deterministic Data",
+          subtitle: "A talk I gave at Fluttercon EU 2024.",
+          date: "July 2024",
+          dateISO: "2024-07-03",
+          section: "archive",
+          tags: [
+            "Flutter",
+            "LLM",
+            "AI",
+            "mobile",
+            "Fluttercon",
+            "data validation",
+          ],
+          image: null,
+          body: `
       
     <p class="article-summary">Building mobile applications that consume predominantly non-deterministic data pose a new and unique set of challenges. This talk given at FlutterCon 2024 in Berlin reviews ways to wrangle non-determinitistic data into more a reliable / usable structure.</p>
     
@@ -921,18 +1104,19 @@ Building systems that empower humans to achieve their dreams.">
     <p>So that's an overview. Like I said, these aren't meant to be a formula or playbook, rather a menu of options you can choose from to improve the resiliency of your app. We're also growing alongside these APIs &mdash; we're trying to stay on the edge as much as we can, and we don't always know what's coming, so it's possible all of these won't be necessary within the next year. We'll see.</p>
 
     <p>If you'd like to check out our app, if you would like to use it to explore your next career step, you can &mdash; it's free, and it's on the iOS App Store. Thank you so much for your time. And that's it.</p>
-      `
-    },
-    {
-      id:       "hope-street-group-ai-philosophy",
-      title:    "[Our] AI Philosophy",
-      subtitle: "An internal statement I wrote on AI, the future, and how we do and do not build education technology powered by LLMs.",
-      date:     "May 2024",
-      dateISO:  "2024-05-01",
-      section:  "archive",
-      tags:     ["AI", "EdTech", "philosophy", "education", "ethics"],
-      image:    null,
-      body: `
+      `,
+        },
+        {
+          id: "hope-street-group-ai-philosophy",
+          title: "[Our] AI Philosophy",
+          subtitle:
+            "An internal statement I wrote on AI, the future, and how we do and do not build education technology powered by LLMs.",
+          date: "May 2024",
+          dateISO: "2024-05-01",
+          section: "archive",
+          tags: ["AI", "EdTech", "philosophy", "education", "ethics"],
+          image: null,
+          body: `
     <p class="article-summary">The purpose of this document was to create a shared language and framing when talking with educators. The audience is primarily educators, but it also includes funders, internal stakeholders, and anyone interested in our approach to AI in education.</p>
 
     <h2>Some definitions</h2>
@@ -1024,23 +1208,31 @@ Building systems that empower humans to achieve their dreams.">
       <li>Speaking at Conferences</li>
       <li>Summer PD &mdash; webinars</li>
     </ul>
-      `
-    },
-    {
-      id:       "scaling-hope-ai",
-      title:    "Scaling Hope AI through capability, distribution, and context",
-      subtitle: "This is the story of scaling Hope AI from a pocket career advisor to a platform grounded in each school's and district's context.",
-      date:     "August 2026",
-      dateISO:  "2026-08-01",
-      section:  "now",
-      tags:     ["Hope Street Group", "AI", "LLM", "EdTech", "mobile", "product", "engineering"],
-      image:    null,
-      body: `
-    <p class="article-summary">As a founding engineer, I've driven Hope AI's evolution from a career-advisor chatbot in a student's pocket into Hope Street, a classroom platform now guiding more than 20,000 students across 300+ schools. This is the story of that build set against the ChatGPT adoption boom happening underneath it, and how our hardest problem kept moving: from making the AI capable, to getting it into classrooms, to grounding it in each school's local context.</p>
-
+      `,
+        },
+        {
+          id: "scaling-hope-ai",
+          title:
+            "Scaling Hope AI through capability, distribution, and context",
+          subtitle:
+            "My account of how we built Hope AI underneath the ChatGPT adoption curve.",
+          date: "August 2026",
+          dateISO: "2026-08-01",
+          section: "now",
+          tags: [
+            "Hope Street Group",
+            "AI",
+            "LLM",
+            "EdTech",
+            "mobile",
+            "product",
+            "engineering",
+          ],
+          image: null,
+          body: `
     <p>In November 2022, ChatGPT reached a million users in five days and a hundred million monthly actives in about two months — faster than Instagram managed in two and a half years, faster than TikTok in nine. By June 2026 the ChatGPT app had crossed a billion monthly users, the fastest any app in history has hit that mark. I spent the last two and a half years building a product on top of the models underneath that curve.</p>
 
-    <p>Building on a foundation that improves every few months is a strange kind of engineering. The ground keeps shifting and rising. What I found most interesting, looking back was watching where our bottleneck moved. Early on, the thing standing between a student and a useful career conversation was model capability. Then capability stopped being the hard part, and distribution became the wall. Then distribution cracked, and the frontier moved again — to context. This is the story of Hope AI told through those three bottlenecks, against the boom happening in the background.</p>
+    <p>Building on a foundation that improves every few months is a strange kind of engineering. The ground keeps shifting and rising. What I find most interesting, looking back was watching where our bottleneck moved. Early on, the thing standing between a student and a useful career conversation was model capability. Then capability stopped being the hard part, and distribution became the wall. Then distribution cracked, and the frontier moved again — to context. This is the story of Hope AI told through those three bottlenecks, against the boom happening in the background.</p>
 
     <h2>Act I — Capability</h2>
 
@@ -1172,48 +1364,55 @@ Limited to trusted partners via API for now; not yet reflected in public adoptio
     <p>If the original gap we uncovered was readiness, knowing how to make the best of an opportunity (a meeting with a real professional, in an interview, an internship, etc.) You don't close that gap by doing the thinking for them and handing over an answer. You close it by making the world more discoverable, by making the next step easier to find. Making a huge space of possible futures navigable, and helping a student take one real step toward one of them.</p>
 
     <p>The models under the curve will keep getting better. Our job is to keep making sure the student is the one deciding where to go.</p>
-      `
-    },
-  ];
+      `,
+        },
+      ];
 
-  // ── Unified navigation: now/recently entries + archive articles, in one
-  //    ordered list, all rendered inline into #entry-display (no separate
-  //    page view). prev/next walks this list regardless of section.
-  const VISIBLE_ENTRIES = ENTRIES.filter(e => !e.hidden);
-  const SORTED_ARTICLES = ARTICLES.slice().sort((a, b) => b.dateISO.localeCompare(a.dateISO));
-  const NAV_ITEMS = [
-    ...VISIBLE_ENTRIES.map(e => ({ type: "entry", data: e })),
-    ...SORTED_ARTICLES.map(a => ({ type: "article", data: a })),
-  ];
+      // ── Unified navigation: now/recently entries + archive articles, in one
+      //    ordered list, all rendered inline into #entry-display (no separate
+      //    page view). prev/next walks this list regardless of section.
+      const VISIBLE_ENTRIES = ENTRIES.filter((e) => !e.hidden);
+      const SORTED_ARTICLES = ARTICLES.slice().sort((a, b) =>
+        b.dateISO.localeCompare(a.dateISO),
+      );
+      const NAV_ITEMS = [
+        ...VISIBLE_ENTRIES.map((e) => ({ type: "entry", data: e })),
+        ...SORTED_ARTICLES.map((a) => ({ type: "article", data: a })),
+      ];
 
-  let currentIndex = 0;
+      let currentIndex = 0;
 
-  function renderEntry(e) {
-    const tags = e.tags.map(t => `<span class="q-tag">${t}</span>`).join(" ");
-    const timeEl = e.dateISO
-      ? `<time datetime="${e.dateISO}">${e.date}</time>`
-      : `<span>${e.date}</span>`;
-    const link = (e.link || e.body)
-      ? `<button class="entry-link" onclick="expandItem('${e.id}')">read full post &rarr;</button>`
-      : "";
-    return `
-      <p class="entry-question">${e.stub ? '<span class="coming-soon">[draft] </span>' : ''}${e.question}</p>
+      function renderEntry(e) {
+        const tags = e.tags
+          .map((t) => `<span class="q-tag">${t}</span>`)
+          .join(" ");
+        const timeEl = e.dateISO
+          ? `<time datetime="${e.dateISO}">${e.date}</time>`
+          : `<span>${e.date}</span>`;
+        const link =
+          e.link || e.body
+            ? `<button class="entry-link" onclick="expandItem('${e.id}')">read full post &rarr;</button>`
+            : "";
+        return `
+      <p class="entry-question">${e.stub ? '<span class="coming-soon">[draft] </span>' : ""}${e.question}</p>
       <p class="entry-context">${e.context}</p>
       <div class="entry-meta">${tags}<span class="dot">&middot;</span>${timeEl}</div>
       ${link}
     `;
-  }
+      }
 
-  function renderEntryFull(e) {
-    const tags = e.tags.map(t => `<span class="q-tag">${t}</span>`).join(" ");
-    let bodyHtml = e.body ? e.body : `<p>${e.context}</p>`;
-    if (e.stub && !e.body) {
-      bodyHtml += `<p class="article-coming-soon">Full post coming soon.</p>`;
-    }
-    if (e.link) {
-      bodyHtml += `<p class="article-external-link"><a href="${e.link}" target="_blank" rel="noopener">read the original post &rarr;</a></p>`;
-    }
-    return `
+      function renderEntryFull(e) {
+        const tags = e.tags
+          .map((t) => `<span class="q-tag">${t}</span>`)
+          .join(" ");
+        let bodyHtml = e.body ? e.body : `<p>${e.context}</p>`;
+        if (e.stub && !e.body) {
+          bodyHtml += `<p class="article-coming-soon">Full post coming soon.</p>`;
+        }
+        if (e.link) {
+          bodyHtml += `<p class="article-external-link"><a href="${e.link}" target="_blank" rel="noopener">read the original post &rarr;</a></p>`;
+        }
+        return `
       <div class="article-eyebrow">${e.section} · ${e.date}</div>
       <h1 class="article-title">${e.question}</h1>
       <div class="article-meta">${tags}</div>
@@ -1223,14 +1422,16 @@ Limited to trusted partners via API for now; not yet reflected in public adoptio
         <span>${e.date}</span>
       </div>
     `;
-  }
+      }
 
-  function renderArticle(a) {
-    const tags = a.tags.map(t => `<span class="q-tag">${t}</span>`).join(" ");
-    const img = a.image
-      ? `<img class="article-image" src="${a.image.src}" alt="${a.image.alt || ""}">`
-      : "";
-    return `
+      function renderArticle(a) {
+        const tags = a.tags
+          .map((t) => `<span class="q-tag">${t}</span>`)
+          .join(" ");
+        const img = a.image
+          ? `<img class="article-image" src="${a.image.src}" alt="${a.image.alt || ""}">`
+          : "";
+        return `
       <div class="article-eyebrow">${a.section} · ${a.date}</div>
       <h1 class="article-title">${a.title}</h1>
       <div class="article-byline">${a.subtitle || ""}</div>
@@ -1238,221 +1439,273 @@ Limited to trusted partners via API for now; not yet reflected in public adoptio
       ${img}
       <div class="article-body">${a.body}</div>
     `;
-  }
+      }
 
-  function showItem(id) {
-    const idx = NAV_ITEMS.findIndex(it => it.data.id === id);
-    const isHidden = idx === -1;
-    const item = isHidden
-      ? { type: "entry", data: ENTRIES.find(e => e.id === id) }
-      : NAV_ITEMS[idx];
-    if (!item.data) return;
-    if (!isHidden) currentIndex = idx;
+      function showItem(id) {
+        const idx = NAV_ITEMS.findIndex((it) => it.data.id === id);
+        const isHidden = idx === -1;
+        const item = isHidden
+          ? { type: "entry", data: ENTRIES.find((e) => e.id === id) }
+          : NAV_ITEMS[idx];
+        if (!item.data) return;
+        if (!isHidden) currentIndex = idx;
 
-    document.getElementById("entry-display").innerHTML =
-      item.type === "article" ? renderArticle(item.data) : renderEntry(item.data);
+        document.getElementById("entry-display").innerHTML =
+          item.type === "article"
+            ? renderArticle(item.data)
+            : renderEntry(item.data);
 
-    document.querySelectorAll(".side-nav-item").forEach(el => {
-      el.classList.toggle("active", el.dataset.id === id);
-      el.setAttribute("aria-current", el.dataset.id === id ? "true" : "false");
-    });
-    document.getElementById("nav-prev").style.visibility = (isHidden || idx <= 0) ? "hidden" : "visible";
-    document.getElementById("nav-next").style.visibility = (isHidden || idx >= NAV_ITEMS.length - 1) ? "hidden" : "visible";
-    window.scrollTo(0, 0);
-  }
+        document.querySelectorAll(".side-nav-item").forEach((el) => {
+          el.classList.toggle("active", el.dataset.id === id);
+          el.setAttribute(
+            "aria-current",
+            el.dataset.id === id ? "true" : "false",
+          );
+        });
+        document.getElementById("nav-prev").style.visibility =
+          isHidden || idx <= 0 ? "hidden" : "visible";
+        document.getElementById("nav-next").style.visibility =
+          isHidden || idx >= NAV_ITEMS.length - 1 ? "hidden" : "visible";
+        window.scrollTo(0, 0);
+      }
 
-  function expandItem(id) {
-    const e = ENTRIES.find(e => e.id === id);
-    if (!e) return;
-    document.getElementById("entry-display").innerHTML = renderEntryFull(e);
-    window.scrollTo(0, 0);
-  }
+      function expandItem(id) {
+        const e = ENTRIES.find((e) => e.id === id);
+        if (!e) return;
+        document.getElementById("entry-display").innerHTML = renderEntryFull(e);
+        window.scrollTo(0, 0);
+      }
 
-  function prevEntry() {
-    if (currentIndex > 0) showItem(NAV_ITEMS[currentIndex - 1].data.id);
-  }
+      function prevEntry() {
+        if (currentIndex > 0) showItem(NAV_ITEMS[currentIndex - 1].data.id);
+      }
 
-  function nextEntry() {
-    if (currentIndex < NAV_ITEMS.length - 1) showItem(NAV_ITEMS[currentIndex + 1].data.id);
-  }
+      function nextEntry() {
+        if (currentIndex < NAV_ITEMS.length - 1)
+          showItem(NAV_ITEMS[currentIndex + 1].data.id);
+      }
 
-  function renderSidebar() {
-    const sections = [
-      { key: "now",      label: "Now" },
-      { key: "recently", label: "Recently" },
-    ];
-    let html = "";
-    sections.forEach(({ key, label }) => {
-      const items = VISIBLE_ENTRIES.filter(e => e.section === key);
-      if (!items.length) return;
-      html += `<div class="side-nav-section">`;
-      html += `<div class="side-label">${label}</div>`;
-      items.forEach(e => {
-        html += `<button class="side-nav-item" data-id="${e.id}" onclick="showItem('${e.id}')" aria-current="false">
+      function renderSidebar() {
+        const sections = [
+          { key: "now", label: "Now" },
+          { key: "recently", label: "Recently" },
+        ];
+        let html = "";
+        sections.forEach(({ key, label }) => {
+          const items = VISIBLE_ENTRIES.filter((e) => e.section === key);
+          if (!items.length) return;
+          html += `<div class="side-nav-section">`;
+          html += `<div class="side-label">${label}</div>`;
+          items.forEach((e) => {
+            html += `<button class="side-nav-item" data-id="${e.id}" onclick="showItem('${e.id}')" aria-current="false">
           <span class="side-nav-date">${e.date}</span><span class="side-nav-title">${e.question}</span>
         </button>`;
-      });
-      html += `</div>`;
-    });
-    if (SORTED_ARTICLES.length) {
-      html += `<div class="side-nav-section">`;
-      html += `<div class="side-label">Archive</div>`;
-      SORTED_ARTICLES.forEach(a => {
-        html += `<button class="side-nav-item" data-id="${a.id}" onclick="showItem('${a.id}')" aria-current="false">
+          });
+          html += `</div>`;
+        });
+        if (SORTED_ARTICLES.length) {
+          html += `<div class="side-nav-section">`;
+          html += `<div class="side-label">Archive</div>`;
+          SORTED_ARTICLES.forEach((a) => {
+            html += `<button class="side-nav-item" data-id="${a.id}" onclick="showItem('${a.id}')" aria-current="false">
           <span class="side-nav-date">${a.date}</span><span class="side-nav-title">${a.title}</span>
         </button>`;
-      });
-      html += `</div>`;
-    }
-    document.getElementById("sidebar-nav").innerHTML = html;
-  }
-
-  // ── Keyboard shortcuts ───────────────────────────────────────
-  const KONAMI_SEQ = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
-  let konamiIdx = 0;
-
-  document.addEventListener('keydown', e => {
-    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-    if (e.key === 'j') { nextEntry(); return; }
-    if (e.key === 'k') { prevEntry(); return; }
-    if (e.key === KONAMI_SEQ[konamiIdx]) {
-      konamiIdx++;
-      if (konamiIdx === KONAMI_SEQ.length) {
-        konamiIdx = 0;
-        showItem('konami');
-        console.log('%c↑↑↓↓←→←→ — you found it.', 'color: #c4a24a; font-family: monospace; font-size: 12px;');
+          });
+          html += `</div>`;
+        }
+        document.getElementById("sidebar-nav").innerHTML = html;
       }
-    } else {
-      konamiIdx = e.key === KONAMI_SEQ[0] ? 1 : 0;
-    }
-  });
 
-  renderSidebar();
-  if (NAV_ITEMS.length) showItem(NAV_ITEMS[0].data.id);
+      // ── Keyboard shortcuts ───────────────────────────────────────
+      const KONAMI_SEQ = [
+        "ArrowUp",
+        "ArrowUp",
+        "ArrowDown",
+        "ArrowDown",
+        "ArrowLeft",
+        "ArrowRight",
+        "ArrowLeft",
+        "ArrowRight",
+        "b",
+        "a",
+      ];
+      let konamiIdx = 0;
 
-  document.getElementById("updated").textContent =
-    "updated " + new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" });
-
-  // ── Theme toggle ─────────────────────────────────────────────
-  (function () {
-    const ICONS = { dark: "assets/brand/theme-icon-cream.png", light: "assets/brand/theme-icon-navy.png" };
-    const THEME_COLOR = { dark: "#0a0a0a", light: "#ffffff" };
-    const LABEL = { dark: "Switch to light mode", light: "Switch to dark mode" };
-
-    const root = document.documentElement;
-    const btn = document.getElementById("theme-toggle");
-    const icon = document.getElementById("theme-toggle-icon");
-    const metaDark = document.getElementById("theme-color-dark");
-    const metaLight = document.getElementById("theme-color-light");
-    let theme = root.getAttribute("data-theme") === "light" ? "light" : "dark";
-
-    function render() {
-      root.setAttribute("data-theme", theme);
-      icon.src = ICONS[theme];
-      btn.setAttribute("aria-pressed", String(theme === "light"));
-      btn.setAttribute("aria-label", LABEL[theme]);
-      // collapse both theme-color metas to the resolved color so browser
-      // chrome reflects the user's manual choice, not just the OS preference
-      metaDark.removeAttribute("media");
-      metaLight.removeAttribute("media");
-      metaDark.setAttribute("content", THEME_COLOR[theme]);
-      metaLight.setAttribute("content", THEME_COLOR[theme]);
-    }
-
-    btn.addEventListener("click", () => {
-      theme = theme === "dark" ? "light" : "dark";
-      localStorage.setItem("theme", theme);
-      render();
-    });
-
-    if (window.matchMedia) {
-      matchMedia("(prefers-color-scheme: light)").addEventListener("change", (e) => {
-        if (localStorage.getItem("theme")) return;
-        theme = e.matches ? "light" : "dark";
-        render();
+      document.addEventListener("keydown", (e) => {
+        if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA")
+          return;
+        if (e.key === "j") {
+          nextEntry();
+          return;
+        }
+        if (e.key === "k") {
+          prevEntry();
+          return;
+        }
+        if (e.key === KONAMI_SEQ[konamiIdx]) {
+          konamiIdx++;
+          if (konamiIdx === KONAMI_SEQ.length) {
+            konamiIdx = 0;
+            showItem("konami");
+            console.log(
+              "%c↑↑↓↓←→←→ — you found it.",
+              "color: #c4a24a; font-family: monospace; font-size: 12px;",
+            );
+          }
+        } else {
+          konamiIdx = e.key === KONAMI_SEQ[0] ? 1 : 0;
+        }
       });
-    }
 
-    render();
-  })();
+      renderSidebar();
+      if (NAV_ITEMS.length) showItem(NAV_ITEMS[0].data.id);
 
-  (function () {
-    const s = 'font-family: monospace;';
-    const ms = Math.round(performance.now());
-    console.log('%c     _\n __(.)<\n \\___)  \n\n$ quack', `${s} font-size: 12px; color: #8a8484;`);
-    console.log('%coh hai! want to connect or work together? email me at acaciadev0@gmail.com', `${s} font-size: 12px; color: #8a8484;`);
-    console.log(`%c${ms}ms to load. no framework harmed.`, `${s} font-size: 11px; color: #3a3535;`);
-  })();
+      document.getElementById("updated").textContent =
+        "updated " +
+        new Date().toLocaleDateString("en-US", {
+          month: "long",
+          year: "numeric",
+        });
 
-  // // ── Backlink graph ──────────────────────────────────────────
-  // (function () {
-  //   const canvas = document.getElementById("graph-canvas");
-  //   const ctx = canvas.getContext("2d");
+      // ── Theme toggle ─────────────────────────────────────────────
+      (function () {
+        const ICONS = {
+          dark: "assets/brand/theme-icon-cream.png",
+          light: "assets/brand/theme-icon-navy.png",
+        };
+        const THEME_COLOR = { dark: "#0a0a0a", light: "#ffffff" };
+        const LABEL = {
+          dark: "Switch to light mode",
+          light: "Switch to dark mode",
+        };
 
-  //   const nodes = [
-  //     { id: "now",       label: "Now",       x: 0.50, y: 0.12 },
-  //     { id: "recently",  label: "Recently",  x: 0.50, y: 0.42 },
-  //     { id: "archive",   label: "Archive",   x: 0.50, y: 0.72 },
-  //     { id: "postgres",  label: "postgres",  x: 0.12, y: 0.30 },
-  //     { id: "kafka",     label: "kafka",     x: 0.14, y: 0.58 },
-  //     { id: "debugging", label: "debugging", x: 0.82, y: 0.50 },
-  //     { id: "process",   label: "process",   x: 0.82, y: 0.78 },
-  //     { id: "projects",  label: "projects",  x: 0.20, y: 0.88 },
-  //   ];
+        const root = document.documentElement;
+        const btn = document.getElementById("theme-toggle");
+        const icon = document.getElementById("theme-toggle-icon");
+        const metaDark = document.getElementById("theme-color-dark");
+        const metaLight = document.getElementById("theme-color-light");
+        let theme =
+          root.getAttribute("data-theme") === "light" ? "light" : "dark";
 
-  //   const edges = [
-  //     ["now","postgres"], ["recently","kafka"], ["recently","debugging"],
-  //     ["recently","process"], ["archive","postgres"], ["projects","kafka"],
-  //     ["projects","recently"], ["now","recently"], ["recently","archive"],
-  //   ];
+        function render() {
+          root.setAttribute("data-theme", theme);
+          icon.src = ICONS[theme];
+          btn.setAttribute("aria-pressed", String(theme === "light"));
+          btn.setAttribute("aria-label", LABEL[theme]);
+          // collapse both theme-color metas to the resolved color so browser
+          // chrome reflects the user's manual choice, not just the OS preference
+          metaDark.removeAttribute("media");
+          metaLight.removeAttribute("media");
+          metaDark.setAttribute("content", THEME_COLOR[theme]);
+          metaLight.setAttribute("content", THEME_COLOR[theme]);
+        }
 
-  //   let hovered = null;
+        btn.addEventListener("click", () => {
+          theme = theme === "dark" ? "light" : "dark";
+          localStorage.setItem("theme", theme);
+          render();
+        });
 
-  //   function resize() {
-  //     const w = canvas.parentElement.getBoundingClientRect().width;
-  //     canvas.width = w; canvas.height = 150; draw();
-  //   }
+        if (window.matchMedia) {
+          matchMedia("(prefers-color-scheme: light)").addEventListener(
+            "change",
+            (e) => {
+              if (localStorage.getItem("theme")) return;
+              theme = e.matches ? "light" : "dark";
+              render();
+            },
+          );
+        }
 
-  //   function px(n) { return { x: n.x * canvas.width, y: n.y * canvas.height }; }
+        render();
+      })();
 
-  //   function draw() {
-  //     ctx.clearRect(0, 0, canvas.width, canvas.height);
-  //     edges.forEach(([a, b]) => {
-  //       const pa = px(nodes.find(n => n.id === a));
-  //       const pb = px(nodes.find(n => n.id === b));
-  //       const active = hovered && (hovered === a || hovered === b);
-  //       ctx.beginPath(); ctx.moveTo(pa.x, pa.y); ctx.lineTo(pb.x, pb.y);
-  //       ctx.strokeStyle = active ? "#cfcecd" : "#2a2626";
-  //       ctx.lineWidth = active ? 1.5 : 0.8;
-  //       ctx.globalAlpha = active ? 1 : 0.8;
-  //       ctx.stroke(); ctx.globalAlpha = 1;
-  //     });
-  //     nodes.forEach(node => {
-  //       const p = px(node);
-  //       const isHov = hovered === node.id;
-  //       const isConn = hovered && edges.some(([a,b]) => (a===hovered&&b===node.id)||(b===hovered&&a===node.id));
-  //       const accent = isHov || isConn;
-  //       const size = isHov ? 5 : 3.5;
-  //       ctx.fillStyle = accent ? "#f1ecec" : "#3a3535";
-  //       ctx.fillRect(p.x - size/2, p.y - size/2, size, size);
-  //       ctx.font = accent ? "bold 9px 'Courier Prime','Courier New',monospace" : "9px 'Courier Prime','Courier New',monospace";
-  //       ctx.fillStyle = accent ? "#cfcecd" : "#565050";
-  //       ctx.textAlign = "center";
-  //       ctx.fillText(node.label, p.x, p.y - 7);
-  //     });
-  //   }
+      (function () {
+        const s = "font-family: monospace;";
+        const ms = Math.round(performance.now());
+        console.log(
+          "%c     _\n __(.)<\n \\___)  \n\n$ quack",
+          `${s} font-size: 12px; color: #8a8484;`,
+        );
+        console.log(
+          "%coh hai! want to connect or work together? email me at acaciadev0@gmail.com",
+          `${s} font-size: 12px; color: #8a8484;`,
+        );
+        console.log(
+          `%c${ms}ms to load. no framework harmed.`,
+          `${s} font-size: 11px; color: #3a3535;`,
+        );
+      })();
 
-  //   canvas.addEventListener("mousemove", e => {
-  //     const r = canvas.getBoundingClientRect();
-  //     const mx = e.clientX - r.left, my = e.clientY - r.top;
-  //     let found = null;
-  //     nodes.forEach(n => { if (Math.hypot(mx - px(n).x, my - px(n).y) < 10) found = n.id; });
-  //     if (found !== hovered) { hovered = found; draw(); }
-  //   });
-  //   canvas.addEventListener("mouseleave", () => { hovered = null; draw(); });
-  //   window.addEventListener("resize", resize);
-  //   resize();
-  // })();
-</script>
-</body>
+      // // ── Backlink graph ──────────────────────────────────────────
+      // (function () {
+      //   const canvas = document.getElementById("graph-canvas");
+      //   const ctx = canvas.getContext("2d");
+
+      //   const nodes = [
+      //     { id: "now",       label: "Now",       x: 0.50, y: 0.12 },
+      //     { id: "recently",  label: "Recently",  x: 0.50, y: 0.42 },
+      //     { id: "archive",   label: "Archive",   x: 0.50, y: 0.72 },
+      //     { id: "postgres",  label: "postgres",  x: 0.12, y: 0.30 },
+      //     { id: "kafka",     label: "kafka",     x: 0.14, y: 0.58 },
+      //     { id: "debugging", label: "debugging", x: 0.82, y: 0.50 },
+      //     { id: "process",   label: "process",   x: 0.82, y: 0.78 },
+      //     { id: "projects",  label: "projects",  x: 0.20, y: 0.88 },
+      //   ];
+
+      //   const edges = [
+      //     ["now","postgres"], ["recently","kafka"], ["recently","debugging"],
+      //     ["recently","process"], ["archive","postgres"], ["projects","kafka"],
+      //     ["projects","recently"], ["now","recently"], ["recently","archive"],
+      //   ];
+
+      //   let hovered = null;
+
+      //   function resize() {
+      //     const w = canvas.parentElement.getBoundingClientRect().width;
+      //     canvas.width = w; canvas.height = 150; draw();
+      //   }
+
+      //   function px(n) { return { x: n.x * canvas.width, y: n.y * canvas.height }; }
+
+      //   function draw() {
+      //     ctx.clearRect(0, 0, canvas.width, canvas.height);
+      //     edges.forEach(([a, b]) => {
+      //       const pa = px(nodes.find(n => n.id === a));
+      //       const pb = px(nodes.find(n => n.id === b));
+      //       const active = hovered && (hovered === a || hovered === b);
+      //       ctx.beginPath(); ctx.moveTo(pa.x, pa.y); ctx.lineTo(pb.x, pb.y);
+      //       ctx.strokeStyle = active ? "#cfcecd" : "#2a2626";
+      //       ctx.lineWidth = active ? 1.5 : 0.8;
+      //       ctx.globalAlpha = active ? 1 : 0.8;
+      //       ctx.stroke(); ctx.globalAlpha = 1;
+      //     });
+      //     nodes.forEach(node => {
+      //       const p = px(node);
+      //       const isHov = hovered === node.id;
+      //       const isConn = hovered && edges.some(([a,b]) => (a===hovered&&b===node.id)||(b===hovered&&a===node.id));
+      //       const accent = isHov || isConn;
+      //       const size = isHov ? 5 : 3.5;
+      //       ctx.fillStyle = accent ? "#f1ecec" : "#3a3535";
+      //       ctx.fillRect(p.x - size/2, p.y - size/2, size, size);
+      //       ctx.font = accent ? "bold 9px 'Courier Prime','Courier New',monospace" : "9px 'Courier Prime','Courier New',monospace";
+      //       ctx.fillStyle = accent ? "#cfcecd" : "#565050";
+      //       ctx.textAlign = "center";
+      //       ctx.fillText(node.label, p.x, p.y - 7);
+      //     });
+      //   }
+
+      //   canvas.addEventListener("mousemove", e => {
+      //     const r = canvas.getBoundingClientRect();
+      //     const mx = e.clientX - r.left, my = e.clientY - r.top;
+      //     let found = null;
+      //     nodes.forEach(n => { if (Math.hypot(mx - px(n).x, my - px(n).y) < 10) found = n.id; });
+      //     if (found !== hovered) { hovered = found; draw(); }
+      //   });
+      //   canvas.addEventListener("mouseleave", () => { hovered = null; draw(); });
+      //   window.addEventListener("resize", resize);
+      //   resize();
+      // })();
+    </script>
+  </body>
 </html>
